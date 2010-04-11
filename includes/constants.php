@@ -41,7 +41,7 @@ if ( !defined('INSIDE') ) die(header("location:../"));
 	define('FIELDS_BY_MOONBASIS_LEVEL', 3);
 
 	// FIELDS FOR EACH LEVEL OF THE TERRAFORMER
-	define('FIELDS_BY_TERRAFORMER'	  , 5);
+	define('FIELDS_BY_TERRAFORMER'	  , 10);
 
 	// NUMBER OF PLANETS THAT MAY HAVE A PLAYER
 	define('MAX_PLAYER_PLANETS'       , 9);
@@ -57,7 +57,7 @@ if ( !defined('INSIDE') ) die(header("location:../"));
 	define('MAX_OVERFLOW'             , 1);
 
 	// INITIAL RESOURCE OF NEW PLANETS
-	define('BASE_STORAGE_SIZE'        , 100000);
+	define('BASE_STORAGE_SIZE'        , 500000);
 	define('BUILD_METAL'              ,    500);
 	define('BUILD_CRISTAL'            ,    500);
 	define('BUILD_DEUTERIUM'          , 	 0);
