@@ -31,13 +31,14 @@ class ShowBuildingsPage
 		$QryUpdatePlanet .= "WHERE ";
 		$QryUpdatePlanet .= "`id` = '".            $CurrentPlanet['id']            ."';";
 		doquery( $QryUpdatePlanet, 'planets');
-
+	
 		return;
 	}
 
 	private function CancelBuildingFromQueue (&$CurrentPlanet, &$CurrentUser)
 	{
 		$CurrentQueue  = $CurrentPlanet['b_building_id'];
+		
 		if ($CurrentQueue != 0)
 		{
 			$QueueArray          = explode ( ";", $CurrentQueue );
@@ -323,7 +324,6 @@ class ShowBuildingsPage
 		include_once($xgp_root . 'includes/functions/GetElementPrice.' . $phpEx);
 
 		CheckPlanetUsedFields ( $CurrentPlanet );
-
 		$parse			= $lang;
 		$Allowed['1'] 	= array(  1,  2,  3,  4, 12, 14, 15, 21, 22, 23, 24, 31, 33, 34, 35, 44, 45);
 		$Allowed['3'] 	= array( 12, 14, 21, 22, 23, 24, 34, 41, 42, 43);
@@ -510,7 +510,8 @@ class ShowBuildingsPage
 		}
 
 		$parse['BuildingsList']        = $BuildingPage;
-
+		$parse['bd_field_current']  = $CurrentPlanet['field_current'];
+		$parse['bd_field_max'] 		= CalculateMaxPlanetFields($CurrentPlanet);
 		display(parsetemplate(gettemplate('buildings/buildings_builds'), $parse));
 	}
 }

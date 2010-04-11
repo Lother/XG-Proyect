@@ -337,7 +337,8 @@ $lang['bd_operating']						= '(工作中)';
 $lang['bd_continue']						= '繼續';
 $lang['bd_ready']							= '完成';
 $lang['bd_finished']						= '完成';
-
+$lang['bd_diameter']						= '剩餘空間';
+$lang['bd_size']							= '方圓';
 //----------------------------------------------------------------------------//
 //RESOURCES
 $lang['rs_amount']							= '數量';
