@@ -57,7 +57,8 @@ if ( !defined('INSIDE') ) die(header("location:../"));
 	define('MAX_OVERFLOW'             , 1);
 
 	// INITIAL RESOURCE OF NEW PLANETS
-	define('BASE_STORAGE_SIZE'        , 500000);
+	define('BASE_STORAGE_SIZE'        ,2000000);
+	define('BASE_STORAGE_ADD'         ,1000000);
 	define('BUILD_METAL'              ,    500);
 	define('BUILD_CRISTAL'            ,    500);
 	define('BUILD_DEUTERIUM'          , 	 0);

@@ -53,7 +53,7 @@ $lang['mail_already_exists']		= '輸入的Email已被使用!<br />';
 $lang['welcome_message_from']		= '管理者';
 $lang['welcome_message_sender']		= '管理者';
 $lang['welcome_message_subject']	= '歡迎';
-$lang['welcome_message_content']	= '歡迎加入 XG project!<p>在剛開始的時候，建築金屬礦是最好的決定。<br />你可以在左邊的選單中找到"建築"。選擇金屬礦並點擊建築。<br />現在你有一些時間可以了解更多關於 XG project 的事情。<p>你可以找到幫助：<br />在 <a href=\"http://scod.iecs.us/forum/\" target=\"_blank\">論壇</a><br />現在你的金屬礦應該已經完成。<br />油與能量不足，你應該建造太陽能發電廠，到建築選單，並選擇太陽能發電廠。<p>你如果想知道有哪些東西你可以研發，你可以在左邊選單點選"技術"來觀看科技樹。<p>現在你征服宇宙的旅途已經開始，祝你好運！';
+$lang['welcome_message_content']	= '歡迎加入 XG project!<p>在剛開始的時候，建築金屬礦是最好的決定。<br />你可以在左邊的選單中找到"建築"。選擇金屬礦並點擊建築。<br />現在你有一些時間可以了解更多關於 XG project 的事情。<p>你可以找到幫助：<br />在 <a href=\"http://scod.iecs.us/forum/thread.php?fid=24\" target=\"_blank\">論壇</a><br />現在你的金屬礦應該已經完成。<br />油與能量不足，你應該建造太陽能發電廠，到建築選單，並選擇太陽能發電廠。<p>你如果想知道有哪些東西你可以研發，你可以在左邊選單點選"技術"來觀看科技樹。<p>現在你征服宇宙的旅途已經開始，祝你好運！';
 $lang['newpass_smtp_email_error']	= '<br><br>一個錯誤已經送出至你的Email，你的密碼是： ';
 $lang['reg_completed']			= '註冊完成';
 
