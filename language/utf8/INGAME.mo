@@ -813,6 +813,11 @@ $lang['mg_subject']							= '標題';
 $lang['mg_confirm_delete']					= '刪除';
 $lang['mg_message_title']					= '訊息分類';
 $lang['mg_message_type']					= '訊息類型';
+$lang['mg_to']								= '收信者';
+$lang['mg_send']							= '發送訊息';
+$lang['mg_caracteres']						= '字元';
+$lang['mg_submit']							= '送出';
+$lang['mg_text']							= '內容';
 $lang['mg_total']							= '總數';
 $lang['mg_game_operators']					= '遊戲管理者';
 

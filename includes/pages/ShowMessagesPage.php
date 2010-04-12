@@ -113,7 +113,13 @@ function ShowMessagesPage($CurrentUser)
 			$parse['id']           = $OwnerID;
 			$parse['to']           = $OwnerRecord['username'] ." [".$OwnerHome['galaxy'].":".$OwnerHome['system'].":".$OwnerHome['planet']."]";
 			$parse['subject']      = (!isset($subject)) ? $lang['mg_no_subject'] : $subject ;
-			$parse['text']         = $text;
+			$parse['text']         = $lang['text'];
+			$parse['mg_subject']   = $lang['mg_subject'];
+			$parse['mg_to']        = $lang['mg_to'];
+			$parse['mg_send']      = $lang['mg_send'];
+			$parse['mg_caracteres']= $lang['mg_caracteres'];
+			$parse['mg_submit']    = $lang['mg_submit'];
+			$parse['mg_text']      = $lang['mg_text'];
 			$page                 .= parsetemplate(gettemplate('messages_pm_form'), $parse);
 		break;
 		case 'delete':
