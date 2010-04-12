@@ -61,7 +61,7 @@ class ShowOfficierPage
 
 		if ($_GET['mode'] == 2)
 		{
-			if ((floor($CurrentUser['darkmatter'] / 1000)) > 0)
+			if ((floor($CurrentUser['darkmatter'] / OFF_DARK_MATTER)) > 0)
 			{
 				$Selected    = $_GET['offi'];
 				if ( in_array($Selected, $reslist['officier']) )
@@ -71,7 +71,7 @@ class ShowOfficierPage
 					if ( $Result == 1 )
 					{
 						$CurrentUser[$resource[$Selected]] += 1;
-						$CurrentUser['darkmatter']         -= 1000;
+						$CurrentUser['darkmatter']         -= OFF_DARK_MATTER;
 
 						$QryUpdateUser  = "UPDATE {{table}} SET ";
 						$QryUpdateUser .= "`darkmatter` = '". $CurrentUser['darkmatter'] ."', ";
@@ -100,7 +100,7 @@ class ShowOfficierPage
 		}
 		else
 		{
-			$parse['alv_points']   	= floor($CurrentUser['darkmatter'] / 1000);
+			$parse['alv_points']   	= floor($CurrentUser['darkmatter'] / OFF_DARK_MATTER);
 			foreach($lang['tech'] as $Element => $ElementName)
 			{
 				$Result = $this->IsOfficierAccessible ($CurrentUser, $Element);

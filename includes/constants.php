@@ -78,5 +78,5 @@ if ( !defined('INSIDE') ) die(header("location:../"));
 
 	// TRADER DARK MATTER DEFAULT VALUE
 	define('TR_DARK_MATTER'			  ,   10);
-
+	define('OFF_DARK_MATTER'			  ,   10);
 ?>
