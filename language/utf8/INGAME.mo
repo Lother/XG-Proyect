@@ -356,7 +356,7 @@ $lang['rs_weekly']							= '每周收入';
 $lang['of_recruit']							= '招募';
 $lang['of_max_lvl']							= '最大等級';
 $lang['of_available_points']				= '可用點數:';
-$lang['of_points_per_thousand_darkmatter']	= '(點數與暗物質比 1:1000)';
+$lang['of_points_per_thousand_darkmatter']	= '點數與暗物質比 1:';
 $lang['of_lvl']								= '等級';
 
 //----------------------------------------------------------------------------//

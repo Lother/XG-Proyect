@@ -101,6 +101,7 @@ class ShowOfficierPage
 		else
 		{
 			$parse['alv_points']   	= floor($CurrentUser['darkmatter'] / OFF_DARK_MATTER);
+			$parse['of_points_per_darkmatter']   	= OFF_DARK_MATTER;
 			foreach($lang['tech'] as $Element => $ElementName)
 			{
 				$Result = $this->IsOfficierAccessible ($CurrentUser, $Element);
