@@ -86,7 +86,7 @@ if ($ConfigGame != 1) die(message ($lang['404_page']));
 		$lang['stat_settings']		=	$game_config['stat_settings'];
 		$lang['stat_amount']		=	$game_config['stat_amount'];
 		$lang['stat_update_time']	=	$game_config['stat_update_time'];
-		$lang['timeact']			=	gmdate("d/M/y H:i:s", $game_config['stat_last_update']);
+		$lang['timeact']			=	date("d/M/y H:i:s", $game_config['stat_last_update']);
 
 		$lang['yes']	=	$lang['one_is_yes'][1];
 		$lang['no']		=	$lang['one_is_yes'][0];

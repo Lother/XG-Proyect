@@ -113,9 +113,9 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 		}
 		$FleetPageRow .= "\">". pretty_number($f[fleet_amount]) ."</a></th>";
 		$FleetPageRow .= "<th>[".$f[fleet_start_galaxy].":".$f[fleet_start_system].":".$f[fleet_start_planet]."]</th>";
-		$FleetPageRow .= "<th>". gmdate("d M Y H:i:s", $f['fleet_start_time']) ."</th>";
+		$FleetPageRow .= "<th>". date("d M Y H:i:s", $f['fleet_start_time']) ."</th>";
 		$FleetPageRow .= "<th>[".$f[fleet_end_galaxy].":".$f[fleet_end_system].":".$f[fleet_end_planet]."]</th>";
-		$FleetPageRow .= "<th>". gmdate("d M Y H:i:s", $f['fleet_end_time']) ."</th>";
+		$FleetPageRow .= "<th>". date("d M Y H:i:s", $f['fleet_end_time']) ."</th>";
 		$FleetPageRow .= "<th><font color=\"lime\"><div id=\"time_0\"><font>". pretty_time(floor($f['fleet_end_time'] + 1 - time())) ."</font></th>";
 		$FleetPageRow .= "<th>";
 

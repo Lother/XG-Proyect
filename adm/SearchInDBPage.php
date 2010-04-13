@@ -140,7 +140,7 @@ switch($_POST[search])
 			
 			$parse['table2']	.=
 			"<tr><th>".$id."</th><th>".$name."</th><th>".$email."</th><th>".$authlevel."</th><th>".$suspended."</th><th>".$vacations."</th>
-			<th>".gmdate("d/M/y H:i:s",$onlinetime)."</th><th>".gmdate("d/M/y H:i:s",$reg_time)."</th><th>".$user_ip."</th></tr>";
+			<th>".date("d/M/y H:i:s",$onlinetime)."</th><th>".date("d/M/y H:i:s",$reg_time)."</th><th>".$user_ip."</th></tr>";
 			
 			$parse['table3']	 =	"<tr><th colspan=\"20\">".$lang['se_input_hay'].$cnt.$lang['se_input_userss']."</th></tr></table>";
 		}
@@ -442,7 +442,7 @@ switch($_POST[search])
 			<td class=\"c\">".$lang['se_id_owner']."</th><td class=\"c\">".$lang['se_input_register']."</th><td class=\"c\">".$lang['se_input_members']."</th></tr>";
 			
 			$parse['table2']	.=
-			"<tr><th>".$id."</th><th>".$ally_name."</th><th>".$ally_tag."</th><th>".$ally_owner."</th><th>".gmdate("d/M/y H:i:s",$reg_time_a)."</th>
+			"<tr><th>".$id."</th><th>".$ally_name."</th><th>".$ally_tag."</th><th>".$ally_owner."</th><th>".date("d/M/y H:i:s",$reg_time_a)."</th>
 			<th>".$ally_members."</th></tr>";
 			
 			$parse['table3']	 =	"<tr><th colspan=\"20\">".$lang['se_input_hay'].$cnt.$lang['se_input_allyy']."</th></tr></table>";
@@ -621,8 +621,8 @@ switch($_POST[search])
 			$longer		=	$suspended['longer'];
 			$author		=	$suspended['author'];	
 			
-			$date		=	gmdate("d/M/y H:i:s", $time);
-			$date_limit	=	gmdate("d/M/y H:i:s", $longer);
+			$date		=	date("d/M/y H:i:s", $time);
+			$date_limit	=	date("d/M/y H:i:s", $longer);
 			
 			$parse['table1']	 =
 			"<table width=\"90%\">
@@ -815,7 +815,7 @@ switch($_POST[search])
 			}
 		
 			
-			$inactives	=	gmdate("d/M/y H:i:s", $inactive);
+			$inactives	=	date("d/M/y H:i:s", $inactive);
 			$parse['table1']	 =
 			"<table width=\"65%\">
 			<tr><td class=\"c\">".$lang['se_id']."</td><td class=\"c\">".$lang['se_name']."</td>

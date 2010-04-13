@@ -1157,6 +1157,7 @@ $lang['sys_expe_report'] 					= "探險報告";
 $lang['sys_recy_report'] 					= "回收報告";
 $lang['sys_expe_blackholl_1'] 				= "你的探險隊遇上了黑洞，使得部分艦隊受到了損傷!";
 $lang['sys_expe_blackholl_2'] 				= "你的探險隊遇上了黑洞，使得艦隊徹底被摧毀!!";
+$lang['sys_expe_blackholl_nothing']			= "你的探險隊遇上了黑洞，不過他們毫髮無損的逃開了!!";
 $lang['sys_expe_nothing_1'] 				= "你的探險隊拍攝到了非常壯闊的的照片。但卻沒有找到資源";
 $lang['sys_expe_nothing_2'] 				= "你的探險隊花了很長的時間在選定的區域，但甚麼都沒有找到";
 $lang['sys_expe_found_goods'] 				= "你的探險隊找到了一個廢棄的礦物基地，還發現不少可以運用的資源 !<br>帶回了 %s %s, %s %s , %s %s 的資源與 %s %s";

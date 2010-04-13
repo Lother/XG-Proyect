@@ -213,9 +213,9 @@ function ShowFleetACSPage($CurrentUser, $CurrentPlanet)
 			}
 			$page .= "\">" . pretty_number($f[fleet_amount]) . "</a></th>";
 			$page .= "<th>[{$f[fleet_start_galaxy]}:{$f[fleet_start_system]}:{$f[fleet_start_planet]}]</th>";
-			$page .= "<th>" . gmdate("d. M Y H:i:s", $f['fleet_start_time']) . "</th>";
+			$page .= "<th>" . date("d. M Y H:i:s", $f['fleet_start_time']) . "</th>";
 			$page .= "<th>[{$f[fleet_end_galaxy]}:{$f[fleet_end_system]}:{$f[fleet_end_planet]}]</th>";
-			$page .= "<th>" . gmdate("d. M Y H:i:s", $f['fleet_end_time']) . "</th>";
+			$page .= "<th>" . date("d. M Y H:i:s", $f['fleet_end_time']) . "</th>";
 			$page .= " </form>";
 			$page .= "<th><font color=\"lime\"><div id=\"time_0\"><font>" . pretty_time(floor($f['fleet_end_time'] + 1 - time())) . "</font></th><th>";
 

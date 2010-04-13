@@ -142,7 +142,7 @@ if ($Observation != 1) die(message ($lang['404_page']));
 			$bloc['mlst_to']      = $OwnerData['username'] ." ".$lang['input_id'].":". $row['message_owner'];
 			$bloc['mlst_subject'] = $row['message_subject'];
 			$bloc['mlst_text']    = $row['message_text'];
-			$bloc['mlst_time']    = gmdate ("d/M/y H:i:s", $row['message_time'] );
+			$bloc['mlst_time']    = date ("d/M/y H:i:s", $row['message_time'] );
 
 			$parse['mlst_data_rows'] .= parsetemplate(gettemplate('adm/MessageListRows'), $bloc);
 		}

@@ -35,8 +35,8 @@ function ShowBannedPage()
 		$parse['banned'] .=
 	        "<tr><td class=b><center><b>".$u[1]."</center></td></b>".
 		"<td class=b><center><b>".$u[2]."</center></b></td>".
-		"<td class=b><center><b>".gmdate("d/m/Y G:i:s",$u[4])."</center></b></td>".
-		"<td class=b><center><b>".gmdate("d/m/Y G:i:s",$u[5])."</center></b></td>".
+		"<td class=b><center><b>".date("d/m/Y G:i:s",$u[4])."</center></b></td>".
+		"<td class=b><center><b>".date("d/m/Y G:i:s",$u[5])."</center></b></td>".
 		"<td class=b><center><b>".$u[6]."</center></b></td></tr>";
 		$i++;
 	}

@@ -34,7 +34,7 @@ class FlyingFleetHandler
 			$String .= $TitleString ." ". $TargetPlanet['name'];
 			$String .= " <a href=\"game.php?page=galaxy&mode=3&galaxy=". $TargetPlanet["galaxy"] ."&system=". $TargetPlanet["system"]. "\">";
 			$String .= "[". $TargetPlanet["galaxy"] .":". $TargetPlanet["system"] .":". $TargetPlanet["planet"] ."]</a>";
-			$String .= " le ". gmdate("d-m-Y H:i:s", time() + 2 * 60 * 60) ."</td>";
+			$String .= " le ". date("d-m-Y H:i:s", time() + 2 * 60 * 60) ."</td>";
 			$String .= "</tr><tr>";
 			$String .= "<td width=220>". $lang['Metal']     ."</td><td width=220 align=right>". pretty_number($TargetPlanet['metal'])      ."</td><td>&nbsp;</td>";
 			$String .= "<td width=220>". $lang['Crystal']   ."</td></td><td width=220 align=right>". pretty_number($TargetPlanet['crystal'])    ."</td>";
@@ -2590,12 +2590,17 @@ class FlyingFleetHandler
 				
 				if ($Hasard < 2)
 				{
-					$LostAmount  = (rand(1, 4)*25);
+					$LostAmount  = (rand(0, 4)*25);
 
 					if ($LostAmount ==100)
 					{
 						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_blackholl_2'] );
 						doquery ("DELETE FROM {{table}} WHERE `fleet_id` = ". $FleetRow["fleet_id"], 'fleets');
+					}
+					else if ($LostAmount ==0)
+					{
+						doquery("UPDATE {{table}} SET `fleet_mess` = '1' WHERE `fleet_id` = ". $FleetRow["fleet_id"], 'fleets');
+					SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_blackholl_nothing'] );
 					}
 					else
 					{
