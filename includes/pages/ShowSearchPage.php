@@ -94,7 +94,7 @@ function ShowSearchPage()
 			}
 			elseif($type=='allytag'||$type=='allyname')
 			{
-				$s['ally_points'] = pretty_number($s['ally_points']);
+				$s['ally_points'] = pretty_number($s["total_points"]);
 
 				$s['ally_tag'] = "<a href=\"game.php?page=alliance&mode=ainfo&tag={$s['ally_tag']}\">{$s['ally_tag']}</a>";
 				$result_list .= parsetemplate($row, $s);

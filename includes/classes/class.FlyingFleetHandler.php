@@ -2606,7 +2606,7 @@ class FlyingFleetHandler
 					{
 						foreach ($LaFlotte as $Ship => $Count)
 						{
-							$LostShips[$Ship] = intval($Count * $LostAmount);
+							$LostShips[$Ship] = intval($Count * $LostAmount/100);
 							$NewFleetArray   .= $Ship.",". ($Count - $LostShips[$Ship]) .";";
 						}
 						$QryUpdateFleet  = "UPDATE {{table}} SET ";
@@ -2615,7 +2615,8 @@ class FlyingFleetHandler
 						$QryUpdateFleet .= "WHERE ";
 						$QryUpdateFleet .= "`fleet_id` = '". $FleetRow["fleet_id"] ."';";
 						doquery( $QryUpdateFleet, 'fleets');
-						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_blackholl_1'] );
+						$Message = sprintf($lang['sys_expe_blackholl_1'],pretty_number($LostAmount));
+						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $Message);
 					}
 				}
 				elseif ($Hasard == 2)
