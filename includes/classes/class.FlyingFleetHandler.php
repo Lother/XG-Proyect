@@ -2585,14 +2585,14 @@ class FlyingFleetHandler
 				$FleetCapacity     -= $FleetUsedCapacity;
 				$FleetCount 		= $FleetRow['fleet_amount'];
 				$Hasard 			= rand(0, 11);
-				$MessSender 		= $lang['sys_mess_qg']. "(".$Hasard.")";
+				$MessSender 		= $lang['sys_mess_qg'];
 				
 				
 				if ($Hasard < 2)
 				{
-					$LostAmount  = (($Hasard+1) * 50);
+					$LostAmount  = (rand(1, 4)*25);
 
-					if ($LostAmount == 100)
+					if ($LostAmount ==100)
 					{
 						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_blackholl_2'] );
 						doquery ("DELETE FROM {{table}} WHERE `fleet_id` = ". $FleetRow["fleet_id"], 'fleets');
