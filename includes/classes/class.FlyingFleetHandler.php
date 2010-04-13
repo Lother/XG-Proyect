@@ -2618,7 +2618,7 @@ class FlyingFleetHandler
 					doquery("UPDATE {{table}} SET `fleet_mess` = '1' WHERE `fleet_id` = ". $FleetRow["fleet_id"], 'fleets');
 					SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_nothing_1'] );
 				}
-				elseif ($Hasard >= 3 && $Hasard < 8)
+				elseif ($Hasard >= 3 && $Hasard < 7)
 				{
 					if ($FleetCapacity>5000)
 					{
@@ -2628,7 +2628,7 @@ class FlyingFleetHandler
 						$FoundMetal  = intval($FoundGoods / 2);
 						$FoundCrist  = intval($FoundGoods / 4);
 						$FoundDeute  = intval($FoundGoods / 6);
-						$FoundDark   = intval($FoundGoods / 20);
+						$FoundDark   = rand(1, 5)*10;
 
 						$QryUpdateFleet  = "UPDATE {{table}} SET ";
 						$QryUpdateFleet .= "`fleet_resource_metal` = `fleet_resource_metal` + '". $FoundMetal ."', ";
@@ -2649,12 +2649,12 @@ class FlyingFleetHandler
 						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $Message );
 					}
 				}
-				elseif ($Hasard == 8)
+				elseif ($Hasard == 7)
 				{
 					doquery("UPDATE {{table}} SET `fleet_mess` = '1' WHERE `fleet_id` = ". $FleetRow["fleet_id"], 'fleets');
 					SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_nothing_2'] );
 				}
-				elseif ($Hasard >= 9 && $Hasard <= 11)
+				elseif ($Hasard >= 8 && $Hasard <= 11)
 				{
 					$FoundChance = $FleetPoints / $FleetCount;
 					for ($Ship = 202; $Ship < 216; $Ship++)
