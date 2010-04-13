@@ -2584,13 +2584,13 @@ class FlyingFleetHandler
 				$FleetUsedCapacity  = $FleetRow['fleet_resource_metal'] + $FleetRow['fleet_resource_crystal'] + $FleetRow['fleet_resource_deuterium'] + $FleetRow['fleet_resource_darkmatter'];
 				$FleetCapacity     -= $FleetUsedCapacity;
 				$FleetCount 		= $FleetRow['fleet_amount'];
-				$Hasard 			= rand(0, 10);
+				$Hasard 			= rand(0, 11);
 				$MessSender 		= $lang['sys_mess_qg']. "(".$Hasard.")";
-
-				if ($Hasard < 3)
+				
+				
+				if ($Hasard < 2)
 				{
-					$Hasard     += 1;
-					$LostAmount  = (($Hasard * 33) + 1) / 100;
+					$LostAmount  = (($Hasard+1) * 50);
 
 					if ($LostAmount == 100)
 					{
@@ -2613,14 +2613,14 @@ class FlyingFleetHandler
 						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_blackholl_1'] );
 					}
 				}
-				elseif ($Hasard == 3)
+				elseif ($Hasard == 2)
 				{
 					doquery("UPDATE {{table}} SET `fleet_mess` = '1' WHERE `fleet_id` = ". $FleetRow["fleet_id"], 'fleets');
 					SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_nothing_1'] );
 				}
-				elseif ($Hasard >= 4 && $Hasard < 7)
+				elseif ($Hasard >= 3 && $Hasard < 8)
 				{
-					if ($FleetCapacity > 5000)
+					if ($FleetCapacity>5000)
 					{
 						$MinCapacity = $FleetCapacity - 5000;
 						$MaxCapacity = $FleetCapacity;
@@ -2649,12 +2649,12 @@ class FlyingFleetHandler
 						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $Message );
 					}
 				}
-				elseif ($Hasard == 7)
+				elseif ($Hasard == 8)
 				{
 					doquery("UPDATE {{table}} SET `fleet_mess` = '1' WHERE `fleet_id` = ". $FleetRow["fleet_id"], 'fleets');
 					SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_nothing_2'] );
 				}
-				elseif ($Hasard >= 8 && $Hasard < 11)
+				elseif ($Hasard >= 9 && $Hasard <= 11)
 				{
 					$FoundChance = $FleetPoints / $FleetCount;
 					for ($Ship = 202; $Ship < 216; $Ship++)
