@@ -1060,6 +1060,7 @@ class ShowAlliancePage
 				}
 
 				$parse[caso] 		= $lang['al_name'];
+				$parse[caso_cng]	= 'nombre';
 				$parse[caso_titulo]	= $lang['al_new_name'];
 
 				display(parsetemplate(gettemplate('alliance/alliance_admin_rename'), $parse));
@@ -1075,6 +1076,7 @@ class ShowAlliancePage
 
 
 				$parse[caso] 		= $lang['al_tag'];
+				$parse[caso_cng]	= 'etiqueta';
 				$parse[caso_titulo]	= $lang['al_new_tag'];
 
 				display(parsetemplate(gettemplate('alliance/alliance_admin_rename'), $parse));
