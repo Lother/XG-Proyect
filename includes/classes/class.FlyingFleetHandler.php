@@ -1453,22 +1453,8 @@ class FlyingFleetHandler
 		{
 			if ($FleetRow['fleet_end_time'] < time())
 			{
-				if ($FleetRow['fleet_resource_metal']=="0" &&$FleetRow['fleet_resource_crystal']=="0" &&$FleetRow['fleet_resource_deuterium']=="0" )
-				{
-					$Message             = sprintf ($lang['sys_tran_mess_back'], $StartName, GetStartAdressLink($FleetRow, ''));
-					SendSimpleMessage ( $StartOwner, '', $FleetRow['fleet_end_time'], 5, $lang['sys_mess_tower'], $lang['sys_mess_fleetback'], $Message);	
-				}
-				else
-				{
-					$this->StoreGoodsToPlanet ($FleetRow, false);
-					$Message         = sprintf( $lang['sys_tran_mess_owner2'],
-								$TargetName, GetTargetAdressLink($FleetRow, ''),
-								$FleetRow['fleet_resource_metal'], $lang['Metal'],
-								$FleetRow['fleet_resource_crystal'], $lang['Crystal'],
-								$FleetRow['fleet_resource_deuterium'], $lang['Deuterium'] );
-
-					SendSimpleMessage ( $StartOwner, '', $FleetRow['fleet_start_time'], 5, $lang['sys_mess_tower'], $lang['sys_mess_transport'], $Message);
-				}
+				$Message             = sprintf ($lang['sys_tran_mess_back'], $StartName, GetStartAdressLink($FleetRow, '')); 
+				SendSimpleMessage ( $StartOwner, '', $FleetRow['fleet_end_time'], 5, $lang['sys_mess_tower'], $lang['sys_mess_fleetback'], $Message); 
 				$this->RestoreFleetToPlanet ( $FleetRow, true );
 				doquery("DELETE FROM {{table}} WHERE fleet_id=" . $FleetRow["fleet_id"], 'fleets');
 			}
@@ -1831,7 +1817,7 @@ class FlyingFleetHandler
 		{
 			if ($FleetRow['fleet_end_time'] <= time())
 			{
-				$Message         = sprintf( $lang['sys_tran_mess_owner2'],
+				$Message         = sprintf( $lang['sys_tran_mess_owner'],
 				$TargetName, GetTargetAdressLink($FleetRow, ''),
 				pretty_number($FleetRow['fleet_resource_metal']), $lang['Metal'],
 				pretty_number($FleetRow['fleet_resource_crystal']), $lang['Crystal'],
