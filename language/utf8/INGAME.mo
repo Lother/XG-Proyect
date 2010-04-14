@@ -1058,6 +1058,13 @@ $lang['op_permanent_email_adress']			= '永久Email地址';
 $lang['op_general_settings']				= '基本設定';
 $lang['op_sort_planets_by']					= '星球排序';
 $lang['op_sort_kind']						= '排列方式:';
+
+$lang['op_planet_sort'][0]						= '殖民日期';
+$lang['op_planet_sort'][1]						= '座標';
+$lang['op_planet_sort'][2]						= '字母順序';
+$lang['op_planet_sort_order'][0]				= '遞增';
+$lang['op_planet_sort_order'][1]				= '遞減';
+
 $lang['op_skin_example']					= '介面下載(e.g. C:/ogame/skin/)<br> <a href="./evolution.rar" target="_blank">download</a>';
 $lang['op_show_skin']						= '使用介面';
 $lang['op_deactivate_ipcheck']				= 'IP檢查';
@@ -1165,6 +1172,7 @@ $lang['sys_expe_found_ships'] 				= "你的探險隊找到了一個廢棄的軍�
 $lang['sys_expe_back_home'] 				= "你的探險隊回到了星球";
 $lang['sys_mess_transport'] 				= "運輸報告";
 $lang['sys_tran_mess_owner'] 				= "你的艦隊抵達 %s %s 並留下了資源: %s  %s, %s  %s , %s  %s 後返航";
+$lang['sys_tran_mess_owner2'] 				= "你的艦隊從 %s %s 運回了: %s  %s, %s  %s , %s  %s ";
 $lang['sys_tran_mess_user']  				= "有一支艦隊來自 %s %s 抵達 %s %s 並留下了資源 :%s %s ,%s %s ,%s %s 後離開";
 $lang['sys_mess_fleetback'] 				= "艦隊返回";
 $lang['sys_tran_mess_back'] 				= "你的艦隊沒有攜帶任何資源,返回了 %s %s.";
