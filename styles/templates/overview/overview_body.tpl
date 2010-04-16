@@ -1,25 +1,25 @@
 <br />
 <div id="content">
-    <table width="519">
+    <table width="600">
         <tr>
         	<td class="c" colspan="4"><a href="game.php?page=overview&mode=renameplanet" title="{Planet_menu}">{ov_planet} "{planet_name}"</a> ({user_username})</td>
         </tr>
             {Have_new_message}
         <tr>
-        	<th>{ov_server_time}</th>
+        	<th width="96">{ov_server_time}</th>
         	<th colspan="3">{date_time}</th>
         </tr>
 		<tr>
-        	<td colspan="4" align=center>
-				<div onClick="config.style.display=config.style.display=='none'?'':'none';notice.style.display='none'">
-					<b><font color=#FFFFFF style="font-size=20;text-decoration:underline;">
+        	<th colspan="4" align=center>
+				<div onClick="config.style.display=config.style.display=='none'?'':'none'">
+					<b><font color=#FFFFFF style="font-size=20;">
 						{ov_server_config}
 					</font></b>
 				</div>
 				<div id="config" style="display:none;"><HR>
 				{config_page}
 				</div>
-			</td>
+			</th>
         </tr>
         <tr>
         	<th>{ov_server_notice}</th>

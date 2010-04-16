@@ -138,10 +138,11 @@ $lang['ov_server_config']					= '遊戲設置';
 $lang['ov_time_between_updates']			= '更新間隔';
 $lang['ov_time_last_updates']				= '上次更新';
 $lang['ov_x']								= '倍';
+$lang['ov_n']								= '分鐘';
 $lang['ov_general_speed']					= '遊戲速度';
 $lang['ov_fleet_speed']						= '艦隊速度';
 $lang['ov_resources_producion_speed']		= '資源生產速度';
-$lang['ov_Cdr']								= '殘骸產生比率 艦隊/防禦';
+$lang['ov_Cdr']								= '殘骸產生比率<br>艦隊/防禦';
 //----------------------------------------------------------------------------//
 //GALAXY
 $lang['gl_no_deuterium_to_view_galaxy']		= '你沒有足夠的重氫';
