@@ -10,6 +10,18 @@
         	<th colspan="3">{date_time}</th>
         </tr>
 		<tr>
+        	<td colspan="4" align=center>
+				<div onClick="config.style.display=config.style.display=='none'?'':'none';notice.style.display='none'">
+					<b><font color=#FFFFFF style="font-size=20;text-decoration:underline;">
+						{ov_server_config}
+					</font></b>
+				</div>
+				<div id="config" style="display:none;"><HR>
+				{config_page}
+				</div>
+			</td>
+        </tr>
+        <tr>
         	<th>{ov_server_notice}</th>
         	<th colspan="3">{server_notice}</th>
         </tr>

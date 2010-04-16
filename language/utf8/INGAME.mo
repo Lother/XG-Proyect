@@ -110,7 +110,6 @@ $lang['ov_place']							= '排行';
 $lang['ov_of']								= 'of';
 $lang['ov_planet']							= '更名/放棄';
 $lang['ov_server_time']						= '伺服器時間';
-$lang['ov_server_notice']						= '遊戲公告';
 $lang['ov_events']							= '事件';
 $lang['ov_diameter']						= '直徑';
 $lang['ov_distance_unit']					= 'km';
@@ -134,6 +133,15 @@ $lang['ov_planet_rename']					= '更名';
 $lang['ov_planet_rename_action']			= '確認更名';
 $lang['ov_abandon_planet_not_possible']		= '尚有艦隊在星球移動中，無法放棄';
 
+$lang['ov_server_notice']					= '遊戲公告';
+$lang['ov_server_config']					= '遊戲設置';
+$lang['ov_time_between_updates']			= '更新間隔';
+$lang['ov_time_last_updates']				= '上次更新';
+$lang['ov_x']								= '倍';
+$lang['ov_general_speed']					= '遊戲速度';
+$lang['ov_fleet_speed']						= '艦隊速度';
+$lang['ov_resources_producion_speed']		= '資源生產速度';
+$lang['ov_Cdr']								= '殘骸產生比率 艦隊/防禦';
 //----------------------------------------------------------------------------//
 //GALAXY
 $lang['gl_no_deuterium_to_view_galaxy']		= '你沒有足夠的重氫';
