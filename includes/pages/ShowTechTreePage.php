@@ -42,22 +42,43 @@ function ShowTechTreePage($CurrentUser, $CurrentPlanet)
 			if (isset($requeriments[$Element]))
 			{
 				$parse['required_list'] = "";
+				$parse['required_list2']= "";
 				foreach($requeriments[$Element] as $ResClass => $Level)
 				{
 					if( isset($CurrentUser[$resource[$ResClass]] ) && $CurrentUser[$resource[$ResClass]] >= $Level)
+					{
 						$parse['required_list'] .= "<font color=\"#00ff00\">";
+						$parse['required_list2'].= "<font color=\"#00ff00\">";
+					}
 					elseif ( isset($CurrentPlanet[$resource[$ResClass]] ) && $CurrentPlanet[$resource[$ResClass]] >= $Level)
+					{
 						$parse['required_list'] .= "<font color=\"#00ff00\">";
+						$parse['required_list2'].= "<font color=\"#00ff00\">";
+					}
 					else
+					{
 						$parse['required_list'] .= "<font color=\"#ff0000\">";
-
+						$parse['required_list2'].= "<font color=\"#ff0000\">";
+					}
+					
 					$parse['required_list'] .= $lang['tech'][$ResClass] ." (". $lang['tt_lvl'] . $Level .")";
 					$parse['required_list'] .= "</font><br>";
+					if (isset($CurrentPlanet[$resource[$ResClass]] ))
+					{
+					$parse['required_list2'] .= $CurrentPlanet[$resource[$ResClass]] ;
+					$parse['required_list2'] .= "</font><br>";
+					}
+					else if (isset($CurrentUser[$resource[$ResClass]] ))
+					{
+						$parse['required_list2'] .= $CurrentUser[$resource[$ResClass]] ;
+						$parse['required_list2'] .= "</font><br>";
+					}
 				};
 			}
 			else
 			{
 				$parse['required_list'] = "";
+				$parse['required_list2'] = "";
 				$parse['tt_detail']     = "";
 			}
 			$parse['tt_info']   = $Element;
