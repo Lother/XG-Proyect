@@ -312,7 +312,7 @@ $OnlyQueryLogin 	= 	doquery("SELECT `id`, `authlevel` FROM {{table}} WHERE `id` 
 				"planet_type,id,name,galaxy,system,planet,destruyed,diameter,field_current,field_max,temp_min,temp_max,metal,crystal,deuterium,energy_max,
 				metal_mine,crystal_mine,deuterium_sintetizer,solar_plant,fusion_plant,robot_factory,nano_factory,hangar,metal_store,crystal_store,deuterium_store,
 				laboratory,terraformer,ally_deposit,silo,small_ship_cargo,big_ship_cargo,light_hunter,heavy_hunter,crusher,battle_ship,colonizer,recycler,
-				spy_sonde,bomber_ship,solar_satelit,destructor,dearth_star,battleship,supernova,misil_launcher,small_laser,big_laser,gauss_canyon,ionic_canyon,
+				spy_sonde,bomber_ship,solar_satelit,destructor,dearth_star,battleship,supernova,noanbattleship,misil_launcher,small_laser,big_laser,gauss_canyon,ionic_canyon,
 				buster_canyon,small_protection_shield,planet_protector,big_protection_shield,interceptor_misil,interplanetary_misil,mondbasis,phalanx,sprungtor,
 				energy_used";
 				
@@ -388,6 +388,7 @@ $OnlyQueryLogin 	= 	doquery("SELECT `id`, `authlevel` FROM {{table}} WHERE `id` 
 						<th width=\"10%\"><a title=\"".pretty_number($PlanetsWhile['dearth_star'])."\">".shortly_number($PlanetsWhile['dearth_star'])."</a></th>
 						<th width=\"10%\"><a title=\"".pretty_number($PlanetsWhile['battleship'])."\">".shortly_number($PlanetsWhile['battleship'])."</a></th>
 						<th width=\"10%\"><a title=\"".pretty_number($PlanetsWhile['supernova'])."\">".shortly_number($PlanetsWhile['supernova'])."</a></th>
+						<th width=\"10%\"><a title=\"".pretty_number($PlanetsWhile['noanbattleship'])."\">".shortly_number($PlanetsWhile['noanbattleship'])."</a></th>
 					</tr>";
 						
 						

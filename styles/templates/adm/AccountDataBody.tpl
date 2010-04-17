@@ -286,6 +286,7 @@ td.blank{border:0px;background:url(images/Adm/blank.gif);text-align:right;paddin
 				<td width="10%">{dearth_star}</td>
 				<td width="10%">{battleship}</td>
 				<td width="10%">{supernova}</td>
+				<td width="10%">{noanbattleship}</td>
 			</tr>
 				{ships}
 			</table>

@@ -278,7 +278,7 @@ function ShowFleetACSPage($CurrentUser, $CurrentPlanet)
 					$pricelist[$i]['speed'] = $pricelist[$i]['speed'] + (($pricelist[$i]['speed'] * $CurrentUser['combustion_tech']) * 0.1);
 				if ($i == 205 or $i == 206 or $i == 208 or $i == 211)
 					$pricelist[$i]['speed'] = $pricelist[$i]['speed'] + (($pricelist[$i]['speed'] * $CurrentUser['impulse_motor_tech']) * 0.2);
-				if ($i == 207 or $i == 213 or $i == 214 or $i == 215 or $i == 216)
+				if ($i == 207 or $i == 213 or $i == 214 or $i == 215 or $i == 216 or $i == 217)
 					$pricelist[$i]['speed'] = $pricelist[$i]['speed'] + (($pricelist[$i]['speed'] * $CurrentUser['hyperspace_motor_tech']) * 0.3);
 
 				$page3 .= '<tr height="20">

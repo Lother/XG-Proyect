@@ -10,17 +10,29 @@
         	<th colspan="3">{date_time}</th>
         </tr>
 		<tr>
-        	<th colspan="4" align=center>
-				<div onClick="config.style.display=config.style.display=='none'?'':'none'">
-					<b><font color=#FFFFFF style="font-size=20;">
-						{ov_server_config}
-					</font></b>
-				</div>
-				<div id="config" style="display:none;"><HR>
-				{config_page}
-				</div>
-			</th>
+        	<td class="c" colspan="4" >
+				{ov_server_config}
+			<td>
         </tr>
+		<tr>
+			<td align=center>{ov_general_speed}</td>
+			<td align=center>{game_speed}{ov_x}</td>
+			<td align=center>{ov_resources_producion_speed}</td>
+			<td align=center>{resource_multiplier}{ov_x}</td>
+		</tr>
+		<tr>
+			<td align=center>{ov_fleet_speed}</td>
+			<td align=center>{fleet_speed}{ov_x}</td>
+			<td align=center>{ov_Cdr}</td>
+			<td align=center>{Fleet_Cdr}/{Defs_Cdr}</td>
+		</tr>
+		<tr>
+			<td align=center>{ov_time_between_updates}</td>
+			<td align=center>{stat_update_time}{ov_n}</th>
+			<td align=center>{ov_time_last_updates}</td>
+			<td align=center>{stat_last_update}</td>
+		</tr>
+
         <tr>
         	<th>{ov_server_notice}</th>
         	<th colspan="3">{server_notice}</th>

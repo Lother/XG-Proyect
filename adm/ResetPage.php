@@ -123,7 +123,7 @@ if ($_POST)
 									`heavy_hunter` = '0', `crusher` = '0', `battle_ship` = '0',
 									`colonizer` = '0', `recycler` = '0', `spy_sonde` = '0',
 									`bomber_ship` = '0', `solar_satelit` = '0', `destructor` = '0',
-									`dearth_star` = '0', `battleship` = '0', `supernova` = '0'", "planets");
+									`dearth_star` = '0', `battleship` = '0', `supernova` = '0', `noanbattleship` = '0'", "planets");
 		$Log	.=	$lang['log_ships']."\n";}
 
 	if ($_POST['h_d']	==	'on'){

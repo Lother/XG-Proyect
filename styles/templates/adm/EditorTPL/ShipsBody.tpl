@@ -77,6 +77,10 @@
 	<th>{supernova}</th>
 	<th><input name="supernova" type="text" value="0" /></th>
 </tr><tr>
+	<th>15</th>
+	<th>{noanbattleship}</th>
+	<th><input name="noanbattleship" type="text" value="0" /></th>
+</tr><tr>
 	<th colspan="3">
 	<input type="reset" value="{button_reset}"/><br /><br />
 	<input type="Submit" value="{button_add}" name="add" />&nbsp;

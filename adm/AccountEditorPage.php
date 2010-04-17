@@ -133,18 +133,19 @@ switch($_GET[page])
 			$dearth_star       	= $_POST['dearth_star'];
 			$battleship      	= $_POST['battleship'];
 			$supernova      	= $_POST['supernova'];
-
+			$noanbattleship     = $_POST['noanbattleship'];
 
 			if(is_numeric($id) && is_numeric($light_hunter) && is_numeric($heavy_hunter) && is_numeric($small_ship_cargo) && is_numeric($big_ship_cargo) &&
 				is_numeric($crusher) && is_numeric($battle_ship) && is_numeric($colonizer) && is_numeric($recycler) && is_numeric($spy_sonde) &&
 				is_numeric($bomber_ship) && is_numeric($solar_satelit) && is_numeric($destructor) && is_numeric($dearth_star) &&
-				is_numeric($battleship) && is_numeric($supernova))
+				is_numeric($battleship) && is_numeric($supernova) && is_numeric($noanbattleship))
 			{
 				if ($_POST['add'])
 				{
 					$QryUpdatePlanet  = "UPDATE {{table}} SET ";
 					$QryUpdatePlanet .= "`small_ship_cargo` = `small_ship_cargo` + '". $small_ship_cargo ."', ";
 					$QryUpdatePlanet .= "`battleship` = `battleship` + '". $battleship ."', ";
+					$QryUpdatePlanet .= "`noanbattleship` = `noanbattleship` + '". $noanbattleship ."', ";
 					$QryUpdatePlanet .= "`dearth_star` = `dearth_star` + '". $dearth_star ."', ";
 					$QryUpdatePlanet .= "`destructor` = `destructor` + '". $destructor ."', ";
 					$QryUpdatePlanet .= "`solar_satelit` = `solar_satelit` + '". $solar_satelit ."', ";
@@ -182,6 +183,7 @@ switch($_GET[page])
 					$QryUpdatePlanet .= "`heavy_hunter` = `heavy_hunter` - '". $heavy_hunter ."', ";
 					$QryUpdatePlanet .= "`big_ship_cargo` = `big_ship_cargo` - '". $big_ship_cargo ."', ";
 					$QryUpdatePlanet .= "`supernova` = `supernova` - '". $supernova ."', ";
+					$QryUpdatePlanet .= "`noanbattleship` = `noanbattleship` - '". $noanbattleship ."', ";
 					$QryUpdatePlanet .= "`light_hunter` = `light_hunter` - '". $light_hunter ."' ";
 					$QryUpdatePlanet .= "WHERE ";
 					$QryUpdatePlanet .= "`id` = '". $id ."' ";
@@ -209,6 +211,7 @@ switch($_GET[page])
 					$Log	.=	$lang['dearth_star'].": ".$dearth_star."\n";
 					$Log	.=	$lang['battleship'].": ".$battleship."\n";
 					$Log	.=	$lang['supernova'].": ".$supernova."\n";
+					$Log	.=	$lang['noanbattleship'].": ".$noanbattleship."\n";
 					$Log	.=	$lang['log_to_planet'].$id."\n";
 
 					LogFunction($Log, "ShipsLog", $LogCanWork);
@@ -818,7 +821,7 @@ switch($_GET[page])
 									`heavy_hunter` = '0', `crusher` = '0', `battle_ship` = '0',
 									`colonizer` = '0', `recycler` = '0', `spy_sonde` = '0',
 									`bomber_ship` = '0', `solar_satelit` = '0', `destructor` = '0',
-									`dearth_star` = '0', `battleship` = '0', `supernova` = '0' WHERE `id` = '".$id."'", "planets");
+									`dearth_star` = '0', `battleship` = '0', `supernova` = '0' , `noanbattleship` = '0'  WHERE `id` = '".$id."'", "planets");
 						$Log	.=	$lang['log_delete_all_ships']."\n";}
 
 					if ($defenses == 'on'){

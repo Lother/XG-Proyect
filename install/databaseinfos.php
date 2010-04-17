@@ -258,6 +258,7 @@ $QryTablePlanets    .= "`destructor` bigint(11) NOT NULL default '0', ";
 $QryTablePlanets    .= "`dearth_star` bigint(11) NOT NULL default '0', ";
 $QryTablePlanets    .= "`battleship` bigint(11) NOT NULL default '0', ";
 $QryTablePlanets    .= "`supernova` bigint(11) NOT NULL default '0', ";
+$QryTablePlanets    .= "`noanbattleship` bigint(11) NOT NULL default '0', ";
 $QryTablePlanets    .= "`misil_launcher` bigint(11) NOT NULL default '0', ";
 $QryTablePlanets    .= "`small_laser` bigint(11) NOT NULL default '0', ";
 $QryTablePlanets    .= "`big_laser` bigint(11) NOT NULL default '0', ";

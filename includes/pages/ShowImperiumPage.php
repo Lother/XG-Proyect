@@ -34,7 +34,7 @@ function ShowImperiumPage($CurrentUser)
 	`crystal_store`,`deuterium_store`,`laboratory`,`terraformer`,`ally_deposit`,`silo`,
 	`small_ship_cargo`,`big_ship_cargo`,`light_hunter`,`heavy_hunter`,`crusher`,`battle_ship`,
 	`colonizer`,`recycler`,`spy_sonde`,`bomber_ship`,`solar_satelit`,`destructor`,`dearth_star`,
-	`battleship`,`supernova`,`misil_launcher`,`small_laser`,`big_laser`,`gauss_canyon`,`ionic_canyon`,
+	`battleship`,`supernova`,`noanbattleship`,`misil_launcher`,`small_laser`,`big_laser`,`gauss_canyon`,`ionic_canyon`,
 	`buster_canyon`,`small_protection_shield`,`planet_protector`,`big_protection_shield`,`interceptor_misil`,
 	`interplanetary_misil`, `mondbasis`, `phalanx`, `sprungtor` FROM {{table}} WHERE `id_owner` = '" . $CurrentUser['id'] . "' AND `destruyed` = 0;", 'planets');
 

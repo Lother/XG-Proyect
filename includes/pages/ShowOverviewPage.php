@@ -402,8 +402,8 @@ function ShowOverviewPage($CurrentUser, $CurrentPlanet)
 
 			$parse['date_time']				= date("D M j H:i:s", time());
 			
-			$parse['game_speed']         	= stripslashes($game_config['game_speed']/5000);
-			$parse['fleet_speed']         	= stripslashes($game_config['fleet_speed']/5000);
+			$parse['game_speed']         	= stripslashes($game_config['game_speed']/2500);
+			$parse['fleet_speed']         	= stripslashes($game_config['fleet_speed']/2500);
 			$parse['resource_multiplier']   = stripslashes($game_config['resource_multiplier']);
 			$parse['stat_update_time']      = stripslashes($game_config['stat_update_time']);
 			$parse['Fleet_Cdr']      		= stripslashes($game_config['Fleet_Cdr']);

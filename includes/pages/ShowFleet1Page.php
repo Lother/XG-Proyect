@@ -53,7 +53,7 @@ function ShowFleet1Page($CurrentUser, $CurrentPlanet)
 	$FleetHiddenBlock  = "";
 	foreach ($reslist['fleet'] as $n => $i)
 	{
-		if ($i > 201 && $i < 217 && $_POST["ship$i"] > "0")
+		if ($i > 201 && $i < 218 && $_POST["ship$i"] > "0")
 		{
 			if (($_POST["ship$i"] > $CurrentPlanet[$resource[$i]]) OR (!ctype_digit( $_POST["ship$i"] )))
 				header("location:game.php?page=fleet");
