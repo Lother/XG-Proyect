@@ -131,7 +131,24 @@ function f(target_url,win_name) {
 					</div>
 				</td>
 			</tr>
-			
+			<tr>
+				<td>
+					<div align="center">
+						<font color="#FFFFFF">
+							<a href='game.php?page=chat'><font color="#99ccFF">{lm_chat}</font></a>
+						</font>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div align="center">
+						<font color="#FFFFFF">
+							<a href='game.php?page=chat&mode=ally'><font color="#99ccFF">{lm_chat_ally}</a>
+						</font>
+					</div>
+				</td>
+			</tr>
 			<tr>
 				<td>
 					<img src="{dpath}gfx/info-help.jpg" width="110" height="19">

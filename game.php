@@ -146,6 +146,20 @@ switch($_GET[page])
 		include_once($xgp_root . 'includes/pages/class.ShowAlliancePage.' . $phpEx);
 		new ShowAlliancePage($user);
 	break;
+	case'chat':
+		switch ($_GET['mode'])
+		{
+			case 'ally':
+				include_once($xgp_root . 'includes/pages/ShowChatPage.' . $phpEx);
+				new ShowChatPage($user,'ally');
+			break;
+			default:
+				include_once($xgp_root . 'includes/pages/ShowChatPage.' . $phpEx);
+				new ShowChatPage($user,'all');
+			break;
+		}
+	break;
+
 // ----------------------------------------------------------------------------------------------------------------------------------------------//
 	case'buddy':
 		include_once($xgp_root . 'includes/pages/ShowBuddyPage.' . $phpEx);

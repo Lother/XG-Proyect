@@ -20,6 +20,17 @@ $lang['type_mission'][8]  					= '回收';
 $lang['type_mission'][9]  					= '銷毀';
 $lang['type_mission'][15] 					= '探險';
 
+$lang['Chat']  	       = "銀河帝國聊天室";
+$lang['AllyChat']  	   = "所有人";
+$lang['chat_loading']  = "供臨時交流...";
+$lang['chat_disc']     = "交流聊天";
+$lang['chat_message']  = "消息";
+$lang['chat_short']    = "表情";
+$lang['chat_text']     = "顯示效果";
+$lang['chat_send']     = "發送";
+$lang['chat_history']  = "隱藏";
+$lang['chat_page']     = "頁";
+
 $lang['user_level'] = array (
 	'0' => '玩家',
 	'1' => '仲裁者',
@@ -82,6 +93,8 @@ $lang['lm_trader']							= '商人';
 $lang['lm_technology']						= '科技';
 $lang['lm_messages']						= '訊息';
 $lang['lm_alliance']						= '聯盟';
+$lang['lm_chat']							= '全體聊天';
+$lang['lm_chat_ally']						= '聯盟聊天';
 $lang['lm_buddylist']						= '好友';
 $lang['lm_notes']							= '筆記';
 $lang['lm_statistics']						= '統計';
@@ -691,7 +704,7 @@ $lang['info'][123]['name']        			= "跨銀河研究網路";
 $lang['info'][123]['description'] 			= "你的星球上的科學家可以經由網路互相通信。每提升一個等級，網路會自動將未連線的研究實驗室加入網路中。在連線建立後，它們的等級會相加。每個連結中的研究實驗室都需要有相應的等級以加入研究。只要等級足夠，研究實驗室會各自分擔工作，效率就像它們被相加一樣。";
 $lang['info'][124]['name']        			= "探險科技";
 $lang['info'][124]['description'] 			= "這項方案不斷修訂符合探險最大化的運用，這也使得每個帝國所被授權准許權不一，唯有研究遞交完善企畫，才可以被允許授權增加派出艦隊的數量，探險外宇宙對許多帝國來說，都是一種新的機會。<br>
-最大探險艦隊數是這項科技級的平方根，而最常停留時間是這項科技的等級";
+(探險艦隊數)*(探險艦隊數+1) / 2 = 所需科技等級";
 $lang['info'][199]['name']        			= "引力研究";
 $lang['info'][199]['description'] 			= "重力子是產生重力的基本微粒。它是自己的反粒子，沒有質量，不帶電荷，自旋數為2。通過發射密集的重力微粒，人工的重力場被製造出來，其能量和吸引力不只可以摧毀船艦，甚至是月球。為了產生足夠的重力微粒，需要大量的能量。";
 
