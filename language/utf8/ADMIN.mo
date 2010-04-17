@@ -84,7 +84,7 @@ $lang['destructor']			= '驅逐艦';
 $lang['dearth_star']		= '死星';
 $lang['battleship']			= '戰鬥巡洋艦';
 $lang['supernova']			= '索拉里要塞';
-$lang['noanbattleship']			= '索拉里要塞';
+$lang['noanbattleship']		= '無畏級戰列艦';
 //###########################################################//
 
 

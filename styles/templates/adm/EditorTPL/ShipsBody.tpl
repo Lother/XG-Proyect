@@ -77,7 +77,7 @@
 	<th>{supernova}</th>
 	<th><input name="supernova" type="text" value="0" /></th>
 </tr><tr>
-	<th>15</th>
+	<th>16</th>
 	<th>{noanbattleship}</th>
 	<th><input name="noanbattleship" type="text" value="0" /></th>
 </tr><tr>
