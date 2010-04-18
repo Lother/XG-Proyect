@@ -25,9 +25,9 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 	{
 		global $ProdGrid, $resource, $reslist, $game_config;
 
-		$CurrentPlanet['metal_max']		=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[22] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
-		$CurrentPlanet['crystal_max']	=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[23] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
-		$CurrentPlanet['deuterium_max']	=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[24] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+		$CurrentPlanet['metal_max']		=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[22] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+		$CurrentPlanet['crystal_max']	=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[23] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+		$CurrentPlanet['deuterium_max']	=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[24] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
 
 		$MaxMetalStorage                = $CurrentPlanet['metal_max']     * MAX_OVERFLOW;
 		$MaxCristalStorage              = $CurrentPlanet['crystal_max']   * MAX_OVERFLOW;
