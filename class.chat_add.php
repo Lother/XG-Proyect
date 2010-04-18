@@ -29,7 +29,7 @@ else
 {
 	$msg = '';
 	$nick = '';
-	$ally_id='1';
+	$ally_id='0';
 }
 
 // Addition of the message in the database

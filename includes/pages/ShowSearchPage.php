@@ -40,7 +40,7 @@ function ShowSearchPage()
 		case "planetname":
 			$table 	= gettemplate('search/search_user_table');
 			$row 	= gettemplate('search/search_user_row');
-			$search = doquery("SELECT * FROM {{table}} WHERE name LIKE '%{$searchtext}%' LIMIT 25",'planets');
+			$search = doquery("SELECT * FROM {{table}} WHERE name LIKE '%{$searchtext}%' ORDER BY `last_update` DESC  LIMIT 25",'planets');
 		break;
 		case "allytag":
 			$table 	= gettemplate('search/search_ally_table');
@@ -94,7 +94,7 @@ function ShowSearchPage()
 			}
 			elseif($type=='allytag'||$type=='allyname')
 			{
-				$s['ally_points'] = pretty_number($s["total_points"]);
+				$s['ally_points'] = pretty_number($s['ally_points']);
 
 				$s['ally_tag'] = "<a href=\"game.php?page=alliance&mode=ainfo&tag={$s['ally_tag']}\">{$s['ally_tag']}</a>";
 				$result_list .= parsetemplate($row, $s);

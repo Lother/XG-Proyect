@@ -30,6 +30,7 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 	    if (IsVacationMode($CurrentUser))
 	       return false;
 
+	         
 		if ($Incremental)
 			$level  = ($CurrentPlanet[$resource[$Element]]) ? $CurrentPlanet[$resource[$Element]] : $CurrentUser[$resource[$Element]];
 
@@ -38,7 +39,7 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 
 		foreach ($array as $ResType)
 		{
-			if ($pricelist[$Element][$ResType] != 0)
+			if ($pricelist[$Element][$ResType]!=0)
 			{
 				if ($Incremental)
 					$cost[$ResType]  = floor($pricelist[$Element][$ResType] * pow($pricelist[$Element]['factor'], $level));

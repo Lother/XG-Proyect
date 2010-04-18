@@ -76,9 +76,9 @@ function ShowResourcesPage($CurrentUser, $CurrentPlanet)
 		$post_porcent = 100;
 	}
 
-	$CurrentPlanet['metal_max']		=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[22] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
-	$CurrentPlanet['crystal_max']	=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[23] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
-	$CurrentPlanet['deuterium_max']	=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[24] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+	$CurrentPlanet['metal_max']		=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[22] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+	$CurrentPlanet['crystal_max']	=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[23] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+	$CurrentPlanet['deuterium_max']	=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[24] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
 
 	$parse['resource_row']               = "";
 	$CurrentPlanet['metal_perhour']      = 0;

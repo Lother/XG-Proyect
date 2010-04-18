@@ -209,7 +209,7 @@ function f(target_url,win_name) {
 				<td>
 					<div align="center">
 						<font color="#FFFFFF">
-							<a href='game.php?page=logout'><font color="#FF0000">{lm_banned}</font></a>
+							<a href='game.php?page=banned'><font color="#FF0000">{lm_banned}</font></a>
 						</font>
 					</div>
 				</td>

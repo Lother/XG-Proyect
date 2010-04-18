@@ -34,7 +34,7 @@ class FlyingFleetHandler
 			$String .= $TitleString ." ". $TargetPlanet['name'];
 			$String .= " <a href=\"game.php?page=galaxy&mode=3&galaxy=". $TargetPlanet["galaxy"] ."&system=". $TargetPlanet["system"]. "\">";
 			$String .= "[". $TargetPlanet["galaxy"] .":". $TargetPlanet["system"] .":". $TargetPlanet["planet"] ."]</a>";
-			$String .= " le ". date("d-m-Y H:i:s", time() + 2 * 60 * 60) ."</td>";
+			$String .= " le ". gmdate("d-m-Y H:i:s", time() + 2 * 60 * 60) ."</td>";
 			$String .= "</tr><tr>";
 			$String .= "<td width=220>". $lang['Metal']     ."</td><td width=220 align=right>". pretty_number($TargetPlanet['metal'])      ."</td><td>&nbsp;</td>";
 			$String .= "<td width=220>". $lang['Crystal']   ."</td></td><td width=220 align=right>". pretty_number($TargetPlanet['crystal'])    ."</td>";
@@ -1453,8 +1453,8 @@ class FlyingFleetHandler
 		{
 			if ($FleetRow['fleet_end_time'] < time())
 			{
-				$Message             = sprintf ($lang['sys_tran_mess_back'], $StartName, GetStartAdressLink($FleetRow, '')); 
-				SendSimpleMessage ( $StartOwner, '', $FleetRow['fleet_end_time'], 5, $lang['sys_mess_tower'], $lang['sys_mess_fleetback'], $Message); 
+				$Message             = sprintf ($lang['sys_tran_mess_back'], $StartName, GetStartAdressLink($FleetRow, ''));
+				SendSimpleMessage ( $StartOwner, '', $FleetRow['fleet_end_time'], 5, $lang['sys_mess_tower'], $lang['sys_mess_fleetback'], $Message);
 				$this->RestoreFleetToPlanet ( $FleetRow, true );
 				doquery("DELETE FROM {{table}} WHERE fleet_id=" . $FleetRow["fleet_id"], 'fleets');
 			}
@@ -2545,7 +2545,6 @@ class FlyingFleetHandler
 				214 => 5.0,
 				215 => 3.2,
 				216 => 3.5,
-				217 => 0.03125,
 				);
 
 				$RatioGain = array (
@@ -2564,7 +2563,6 @@ class FlyingFleetHandler
 				214 => 0.03125,
 				215 => 0.0625,
 				216 => 0.03125,
-				217 => 0.03125,
 				);
 
 				$FleetStayDuration 	= ($FleetRow['fleet_end_stay'] - $FleetRow['fleet_start_time']) / 3600;
@@ -2608,7 +2606,7 @@ class FlyingFleetHandler
 					{
 						foreach ($LaFlotte as $Ship => $Count)
 						{
-							$LostShips[$Ship] = intval($Count * $LostAmount/100);
+							$LostShips[$Ship] = intval($Count * $LostAmount);
 							$NewFleetArray   .= $Ship.",". ($Count - $LostShips[$Ship]) .";";
 						}
 						$QryUpdateFleet  = "UPDATE {{table}} SET ";
@@ -2617,8 +2615,7 @@ class FlyingFleetHandler
 						$QryUpdateFleet .= "WHERE ";
 						$QryUpdateFleet .= "`fleet_id` = '". $FleetRow["fleet_id"] ."';";
 						doquery( $QryUpdateFleet, 'fleets');
-						$Message = sprintf($lang['sys_expe_blackholl_1'],pretty_number($LostAmount));
-						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $Message);
+						SendSimpleMessage ( $FleetOwner, '', $FleetRow['fleet_end_stay'], 15, $MessSender, $MessTitle, $lang['sys_expe_blackholl_1'] );
 					}
 				}
 				elseif ($Hasard == 2)
@@ -2665,7 +2662,7 @@ class FlyingFleetHandler
 				elseif ($Hasard >= 8 && $Hasard <= 11)
 				{
 					$FoundChance = $FleetPoints / $FleetCount;
-					for ($Ship = 202; $Ship <= 217; $Ship++)
+					for ($Ship = 202; $Ship < 216; $Ship++)
 					{
 						if ($LaFlotte[$Ship] != 0)
 						{
@@ -2674,7 +2671,6 @@ class FlyingFleetHandler
 								$LaFlotte[$Ship] += $FoundShip[$Ship];
 						}
 					}
-					
 					$NewFleetArray = "";
 					$FoundShipMess = "";
 

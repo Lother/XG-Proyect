@@ -69,6 +69,7 @@ function display ($page, $topnav = true, $metatags = '', $AdminPage = false, $me
 	else
 		$DisplayPage  = AdminUserHeader($metatags);
 
+	if(!isset($parse))$parse="";
 	if ($topnav)
 	{
 		include_once($xgp_root . 'includes/functions/ShowTopNavigationBar.' . $phpEx);
@@ -106,6 +107,10 @@ function StdUserHeader ($metatags = '')
 {
 	global $dpath, $game_config;
 
+	if (!isset($parse['-title-']))$parse['-title-']="";
+	if (!isset($parse['-favi-']))$parse['-favi-']="";
+	if (!isset($parse['-meta-']))$parse['-meta-']="";
+	if (!isset($parse['-style']))$parse['-style-']="";
 	$parse['-title-'] 	.= $game_config['game_name'];
 	$parse['-favi-']	.= "<link rel=\"shortcut icon\" href=\"./favicon.ico\">\n";
 	$parse['-meta-']	.= "<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf8\">\n";
@@ -130,6 +135,12 @@ function StdUserHeader ($metatags = '')
 function AdminUserHeader ($metatags = '')
 {
 	global $game_config;
+
+	if (!isset($parse['-title-']))$parse['-title-']="";
+	if (!isset($parse['-favi-']))$parse['-favi-']="";
+	if (!isset($parse['-meta-']))$parse['-meta-']="";
+	if (!isset($parse['-style']))$parse['-style-']="";
+
 
 	if (!defined('IN_ADMIN'))
 		$parse['-title-'] 	.= 	"XG Proyect - Install";

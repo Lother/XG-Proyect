@@ -20,13 +20,15 @@ $timemoment = time();
 $time_1h = $timemoment - 3600;
 $ally_id  = trim(str_replace('+', 'plus', $_POST['ally_id']));
 // One selects the messages present in the base of data
-$query = doquery("SELECT * FROM {{table}} WHERE ally_id='". $ally_id ."' ORDER BY id DESC", 'chat');
-$msglist="";
+$q = doquery("SELECT COUNT(id) FROM {{table}} WHERE ally_id='". $ally_id ."'", 'chat');
+$sq = mysql_fetch_array($q);
+$num=$sq[0]-20;
+if ($num<0) $num=0;
+$query = doquery("SELECT * FROM {{table}} WHERE ally_id='". $ally_id ."' ORDER BY id ASC LIMIT ".$num.",22", 'chat');
 while ($v = mysql_fetch_object($query))
 {
-	$nick = htmlentities(utf8_decode($v->user));
-	$msg  = htmlentities(utf8_decode($v->message));
-
+	$nick = $v->user;
+	$msg  = $v->message;
 	$pattern = array();
 	$replace = array();
 
@@ -90,7 +92,7 @@ while ($v = mysql_fetch_object($query))
 
 	// Message
 	$msg = "<div align=left>{$nick}&#62;{$msg}<br></div>";
-	$msglist=$msg.$msglist;
+	echo stripslashes($msg);
 }
-	echo stripslashes($msglist);
+
 ?>

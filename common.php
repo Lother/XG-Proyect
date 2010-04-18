@@ -24,6 +24,7 @@ if(filesize($xgp_root . 'config.php') == 0 && INSTALL != true)
 	exit ( header ( "location:" . $xgp_root .  "install/" ) );
 }
 
+
 $phpEx			= "php";
 $game_config   	= array();
 $user          	= array();

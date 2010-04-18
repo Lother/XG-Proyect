@@ -61,4 +61,4 @@ function addSmiley(smiley){
 }
 
 // Intervalle entre les messages
-setInterval(showMessage,3000);
+setInterval(showMessage,5000);

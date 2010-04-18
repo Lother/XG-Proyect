@@ -2,6 +2,7 @@
 
 <br /><br /><br /><br /><br />
 
+<div id="content">
 <table align="center"><tbody>
 
 <tr><td class="c"><b>{chat_disc}</b></td></tr>
@@ -35,3 +36,4 @@
 <th>[b]{chat_text}[/b]<br />[i]{chat_text}[/i]<br />[u]{chat_text}[/u]<br />[a=http://xgp.twbbs.org]{chat_text}[/a]<br />[c=blue|yellow|green|pink|red|orange]{chat_text}[/c]</th></tr>
 
 </tbody></table>
+</div>

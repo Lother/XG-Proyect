@@ -30,7 +30,7 @@ if ( !defined('INSIDE') ) die(header("location:../"));
 	define('GAMEURL'                  , "http://".$_SERVER['HTTP_HOST']."/");
 
 	// UNIVERSE DATA, GALAXY, SYSTEMS AND PLANETS || DEFAULT 9-499-15 RESPECTIVELY
-	define('MAX_GALAXY_IN_WORLD'      ,   9);
+	define('MAX_GALAXY_IN_WORLD'      ,   6);
 	define('MAX_SYSTEM_IN_GALAXY'     , 499);
 	define('MAX_PLANET_IN_SYSTEM'     ,  15);
 

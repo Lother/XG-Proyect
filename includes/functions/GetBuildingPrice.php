@@ -65,7 +65,7 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 		$text  = "<br><font color=\"#7f7f7f\">" . $lang['bd_remaining'] . ": ";
 		foreach ($array as $ResType => $ResTitle)
 		{
-			if ($pricelist[$Element][$ResType] != 0)
+			if (isset($pricelist[$Element][$ResType]))
 			{
 				$text .= $ResTitle . ": ";
 				if ($userfactor)

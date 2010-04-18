@@ -25,9 +25,9 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 	{
 		global $ProdGrid, $resource, $reslist, $game_config;
 
-		$CurrentPlanet['metal_max']		=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[22] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
-		$CurrentPlanet['crystal_max']	=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[23] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
-		$CurrentPlanet['deuterium_max']	=	(BASE_STORAGE_SIZE + BASE_STORAGE_ADD * (roundUp(pow(1.6,$CurrentPlanet[ $resource[24] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+		$CurrentPlanet['metal_max']		=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[22] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+		$CurrentPlanet['crystal_max']	=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[23] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
+		$CurrentPlanet['deuterium_max']	=	(BASE_STORAGE_SIZE + 50000 * (roundUp(pow(1.6,$CurrentPlanet[ $resource[24] ])) -1)) * (1 + ($CurrentUser['rpg_stockeur'] * STOCKEUR));
 
 		$MaxMetalStorage                = $CurrentPlanet['metal_max']     * MAX_OVERFLOW;
 		$MaxCristalStorage              = $CurrentPlanet['crystal_max']   * MAX_OVERFLOW;
@@ -60,6 +60,11 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 		{
 			if ( in_array( $ProdID, $reslist['prod']) )
 			{
+			        if(!isset($Caps['metal_perhour']))$Caps['metal_perhour']="";
+				if(!isset($Caps['crystal_perhour']))$Caps['crystal_perhour']="";
+				if(!isset($Caps['deuterium_perhour']))$Caps['deuterium_perhour']="";
+				if(!isset($Caps['energy_used']))$Caps['energy_used']="";
+				if(!isset($Caps['energy_max']))$Caps['energy_max']="";
 				$BuildLevelFactor = $CurrentPlanet[ $resource[$ProdID]."_porcent" ];
 				$BuildLevel = $CurrentPlanet[ $resource[$ProdID] ];
 				$Caps['metal_perhour']     += floor( eval ( $ProdGrid[$ProdID]['formule']['metal'] )     * (0.01 * $post_porcent) * ( $game_config['resource_multiplier'] ) * ( 1 + ( $CurrentUser['rpg_geologue'] * GEOLOGUE ) ) );

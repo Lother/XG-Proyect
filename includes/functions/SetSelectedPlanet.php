@@ -23,7 +23,8 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 
 	function SetSelectedPlanet ( &$CurrentUser )
 	{
-
+	        if(!isset($_GET['cp'])) $_GET['cp']="";
+		if(!isset($_GET['re'])) $_GET['re']="";
 		$SelectPlanet  = $_GET['cp'];
 		$RestorePlanet = $_GET['re'];
 
