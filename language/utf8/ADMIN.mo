@@ -165,9 +165,9 @@ $lang['scientific']				= '科學開發團隊';
 $lang['commander']				= '艦隊總司令';
 $lang['storer']					= '倉儲管理團隊';
 $lang['defender']				= '精英工兵小隊';
-$lang['destroyer']				= '防禦改良小組';
+$lang['destroyer']				= '實驗武器開發團隊';
 $lang['general']				= '帝國元帥';
-$lang['protector']				= '實驗武器開發團隊';
+$lang['protector']				= '防禦改良小組';
 $lang['conqueror']				= '帝國總理';
 $lang['emperor']				= '帝國皇帝';
 //###########################################################//

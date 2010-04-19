@@ -1,4 +1,7 @@
 <tr>
+    <td class="c" colspan="8" align="center">{gl_notes}</td>
+</tr>
+<tr>
     <td class="c" colspan="8">{gl_solar_system} {galaxy}:{system}</td>
 </tr>
 <tr>

@@ -159,6 +159,7 @@ $lang['ov_resources_producion_speed']		= '資源生產速度';
 $lang['ov_Cdr']								= '殘骸產生比率<br>艦隊/防禦';
 //----------------------------------------------------------------------------//
 //GALAXY
+$lang['gl_notes']							= '<font color="yellow">系統提醒</font>:探索宇宙每跨一個太陽系需花費<font color="red">10</font>氦3。';
 $lang['gl_no_deuterium_to_view_galaxy']		= '你沒有足夠的重氫';
 $lang['gl_legend']							= '標記';
 $lang['gl_strong_player']					= '強大的對手';

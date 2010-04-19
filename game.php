@@ -192,6 +192,10 @@ switch($_GET['page'])
 		include_once($xgp_root . 'includes/pages/ShowBannedPage.' . $phpEx);
 		ShowBannedPage();
 	break;
+	case'team':
+		include_once($xgp_root . 'includes/pages/ShowTeamPage.' . $phpEx);
+		ShowTeamdPage();
+	break;
 // ----------------------------------------------------------------------------------------------------------------------------------------------//
 	case'logout':
 		setcookie($game_config['COOKIE_NAME'], "", time()-100000, "/", "", 0);
