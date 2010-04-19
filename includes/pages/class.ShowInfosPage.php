@@ -342,6 +342,7 @@ class ShowInfosPage
 		$ResultString = "";
 		for ($Type = 200; $Type < 500; $Type++)
 		{
+			if(!isset($CombatCaps[$BuildID]['sd'][$Type]))$CombatCaps[$BuildID]['sd'][$Type]=0;
 			if ($CombatCaps[$BuildID]['sd'][$Type] > 1)
 				$ResultString .= $lang['in_rf_again']. " ". $lang['tech'][$Type] ." <font color=\"#00ff00\">".$CombatCaps[$BuildID]['sd'][$Type]."</font><br>";
 		}
@@ -355,6 +356,7 @@ class ShowInfosPage
 		$ResultString = "";
 		for ($Type = 200; $Type < 500; $Type++)
 		{
+			if(!isset($CombatCaps[$Type]['sd'][$BuildID]))$CombatCaps[$Type]['sd'][$BuildID]=0;
 			if ($CombatCaps[$Type]['sd'][$BuildID] > 1)
 				$ResultString .= $lang['in_rf_from']. " ". $lang['tech'][$Type] ." <font color=\"#ff0000\">".$CombatCaps[$Type]['sd'][$BuildID]."</font><br>";
 		}

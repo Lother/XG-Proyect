@@ -84,6 +84,7 @@ class ShowShipyardPage
 			{
 				$Element 		= explode(',', $Element);
 				$ElementTime  	= GetBuildingTime( $CurrentUser, $CurrentPlanet, $Element[0] );
+				if(!isset($QueueTime))$QueueTime=0;
 				$QueueTime   	+= $ElementTime * $Element[1];
 				$TimePerType 	.= "".$ElementTime.",";
 				$NamePerType 	.= "'". html_entity_decode($lang['tech'][$Element[0]]) ."',";
@@ -97,6 +98,7 @@ class ShowShipyardPage
 		$parse['c'] 					= $TimePerType;
 		$parse['b_hangar_id_plus'] 		= $CurrentPlanet['b_hangar'];
 		$parse['pretty_time_b_hangar'] 	= pretty_time($QueueTime - $CurrentPlanet['b_hangar']);
+		if(!isset($text))$text="";
 		$text .= parsetemplate(gettemplate('buildings/buildings_script'), $parse);
 
 		return $text;
@@ -167,6 +169,7 @@ class ShowShipyardPage
 
 				for($i = 0; $i < MAX_BUILDING_QUEUE_SIZE; $i++)
 				{
+					if(!isset($QueueArray[$i]))$QueueArray[$i]="";
 					$ListIDArray	= explode (",", $QueueArray[$i]);
 					$Element		= $ListIDArray[0];
 
@@ -181,10 +184,11 @@ class ShowShipyardPage
 			{
 				$CurrentBuilding = $CurrentQueue;
 			}
-
+			if(!isset($CurrentBuilding))$CurrentBuilding=0;
+			if(!isset($Element))$Element=0;
 			if ( ( ( $CurrentBuilding == 21 ) or ( $CurrentBuilding == 14 ) or ( $CurrentBuilding == 15 ) ) or  (($Element == 21 ) or ( $Element == 14 ) or ( $Element == 15 )) ) // ADDED (or $Element == 21) BY LUCKY
 			{
-				$parse[message] = "<font color=\"red\">".$lang['bd_building_shipyard']."</font>";
+				$parse['message'] = "<font color=\"red\">".$lang['bd_building_shipyard']."</font>";
 				$NotBuilding = false;
 			}
 		}
@@ -200,7 +204,7 @@ class ShowShipyardPage
 					$BuildOneElementTime = GetBuildingTime($CurrentUser, $CurrentPlanet, $Element);
 					$ElementCount        = $CurrentPlanet[$resource[$Element]];
 					$ElementNbre         = ($ElementCount == 0) ? "" : " (". $lang['bd_available'] . pretty_number($ElementCount) . ")";
-
+					if(!isset($PageTable))$PageTable="";
 					$PageTable .= "\n<tr>";
 					$PageTable .= "<th class=l>";
 					$PageTable .= "<a href=game.".$phpEx."?page=infos&gid=".$Element.">";
@@ -222,7 +226,7 @@ class ShowShipyardPage
 
 					if($NotBuilding)
 					{
-						$parse[build_fleet] = "<tr><td class=\"c\" colspan=\"2\" align=\"center\"><input type=\"submit\" value=\"".$lang['bd_build_ships']."\"></td></tr>";
+						$parse['build_fleet'] = "<tr><td class=\"c\" colspan=\"2\" align=\"center\"><input type=\"submit\" value=\"".$lang['bd_build_ships']."\"></td></tr>";
 					}
 
 					$PageTable .= "</th>";
@@ -231,9 +235,11 @@ class ShowShipyardPage
 				}
 			}
 		}
-
+		if(!isset($BuildQueue))$BuildQueue="";
 		if ($CurrentPlanet['b_hangar_id'] != '')
+		{
 			$BuildQueue .= $this->ElementBuildListBox( $CurrentUser, $CurrentPlanet );
+		}
 
 		$parse['buildlist']    	= $PageTable;
 		$parse['buildinglist'] 	= $BuildQueue;
@@ -377,6 +383,7 @@ class ShowShipyardPage
 
 				for($i = 0; $i < MAX_BUILDING_QUEUE_SIZE; $i++)
 				{
+					if(!isset($QueueArray[$i]))$QueueArray[$i]="";
 					$ListIDArray	= explode (",", $QueueArray[$i]);
 					$Element		= $ListIDArray[0];
 
@@ -391,7 +398,8 @@ class ShowShipyardPage
 			{
 				$CurrentBuilding = $CurrentQueue;
 			}
-
+			if(!isset($CurrentBuilding))$CurrentBuilding=0;
+			if(!isset($Element))$Element=0;
 			if ( ( ( $CurrentBuilding == 21 ) or ( $CurrentBuilding == 14 ) or ( $CurrentBuilding == 15 ) ) or  (($Element == 21 ) or ( $Element == 14 ) or ( $Element == 15 )) ) // ADDED (or $Element == 21) BY LUCKY
 			{
 				$parse[message] = "<font color=\"red\">".$lang['bd_building_shipyard']."</font>";
@@ -460,7 +468,7 @@ class ShowShipyardPage
 
 						if($NotBuilding)
 						{
-							$parse[build_defenses] = "<tr><td class=\"c\" colspan=\"2\" align=\"center\"><input type=\"submit\" value=\"".$lang['bd_build_defenses']."\"></td></tr>";
+							$parse['build_defenses'] = "<tr><td class=\"c\" colspan=\"2\" align=\"center\"><input type=\"submit\" value=\"".$lang['bd_build_defenses']."\"></td></tr>";
 						}
 					}
 					else
@@ -472,11 +480,12 @@ class ShowShipyardPage
 				}
 			}
 		}
-
+		if(!isset($BuildQueue))$BuildQueue="";
 		if ($CurrentPlanet['b_hangar_id'] != '')
 			$BuildQueue .= $this->ElementBuildListBox( $CurrentUser, $CurrentPlanet );
 
 		$parse['buildlist']    	= $PageTable;
+		if(!isset($BuildQueue))$BuildQueue="";
 		$parse['buildinglist'] 	= $BuildQueue;
 		display(parsetemplate(gettemplate('buildings/buildings_defense'), $parse));
 	}

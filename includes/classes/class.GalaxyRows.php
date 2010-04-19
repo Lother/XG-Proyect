@@ -81,6 +81,7 @@ class GalaxyRows
 		{
 			if ($CurrentMIP <> 0)
 			{
+				if(!isset($GalaxyRowUser['id']))$GalaxyRowUser['id']=0;
 				if ($GalaxyRowUser['id'] != $user['id'])
 				{
 					if ($GalaxyRowPlanet["galaxy"] == $CurrentGalaxy)
@@ -196,6 +197,7 @@ class GalaxyRows
 				$Result .= "</table>\"";
 				$Result .= ", STICKY, MOUSEOFF, DELAY, 750, CENTER, OFFSETX, -40, OFFSETY, -40 );'";
 				$Result .= " onmouseout='return nd();'>";
+				if(!isset($GalaxyRowPlayer['ally_id']))$GalaxyRowPlayer['ally_id']=0;
 				if ($user['ally_id'] == $GalaxyRowPlayer['ally_id'])
 				{
 					$Result .= "<span class=\"allymember\">". $allyquery['ally_tag'] ."</span></a>";
@@ -447,6 +449,7 @@ class GalaxyRows
 			elseif ($GalaxyRowUser['id'] == $user['id'])
 				$MissionType1Link = "";
 
+			if(!isset($game_config['allow_acs']))$game_config['allow_acs']=0;
 			if ($GalaxyRowUser['id'] != $user['id'] AND $game_config['allow_acs'] == 1 AND $Buddy)
 				$MissionType5Link = "<a href=game.php?page=fleet&galaxy=".$Galaxy."&system=".$System."&planet=".$Planet."&planettype=".$PlanetType."&target_mission=5>".$lang['type_mission'][5]."</a><br />";
 			elseif ($GalaxyRowUser['id'] == $user['id'])
@@ -480,9 +483,11 @@ class GalaxyRows
 			$Result .= $MissionType6Link;
 			$Result .= $PhalanxTypeLink;
 			$Result .= $MissionType1Link;
+			if(!isset($MissionType5Link))$MissionType5Link="";
 			$Result .= $MissionType5Link;
 			$Result .= $MissionType4Link;
 			$Result .= $MissionType3Link;
+			if(!isset($MissionType10Link))$MissionType10Link="";
 			$Result .= $MissionType10Link;
 			$Result .= "</th>";
 			$Result .= "</tr>";
@@ -527,7 +532,8 @@ class GalaxyRows
 			{
 				$PhalanxTypeLink = stripslashes($GalaxyRowPlanet['name']);
 			}
-
+			if(!isset($TextColor))$TextColor=0;
+			if(!isset($EndColor))$EndColor=0;
 			$Result .= $TextColor . $PhalanxTypeLink . $EndColor;
 
 			if ($GalaxyRowPlanet['last_update']  > (time()-59 * 60) && $GalaxyRowUser['id'] != $user['id'])
@@ -636,7 +642,7 @@ class GalaxyRows
 				$Systemtart = 1;
 			else
 				$Systemtart = (floor( $User2Points['total_rank'] / 100 ) * 100) + 1;
-
+			
 			$Result .= "<a style=\"cursor: pointer;\"";
 			$Result .= " onmouseover='return overlib(\"";
 			$Result .= "<table width=190>";
@@ -660,6 +666,7 @@ class GalaxyRows
 			$Result .= $Systemtatus6;
 			$Result .= $Systemtatus;
 			$Result .= $Systemtatus2;
+			if(!isset($admin))$admin="";
 			$Result .= $Systemtatus7." ".$admin;
 			$Result .= "</span></a>";
 		}

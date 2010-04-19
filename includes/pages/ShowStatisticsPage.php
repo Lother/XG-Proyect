@@ -26,17 +26,21 @@ function ShowStatisticsPage($CurrentUser)
 	global $game_config, $dpath, $lang;
 
 	$parse	= $lang;
-	$who   	= (isset($_POST['who']))   ? $_POST['who']   : $_GET['who'];
+	if(isset($_POST['who']))$who =$_POST['who'];
+	else if (isset($_GET['who']))$who =$_GET['who'];
 	if (!isset($who))
 		$who   = 1;
-
-	$type  	= (isset($_POST['type']))  ? $_POST['type']  : $_GET['type'];
+		
+	if(isset($_POST['type']))$type =$_POST['type'];
+	else if (isset($_GET['type']))$type =$_GET['type'];
 	if (!isset($type))
-		$type  = 1;
-
-	$range 	= (isset($_POST['range'])) ? $_POST['range'] : $_GET['range'];
+		$type   = 1;
+		
+	if(isset($_POST['range']))$range =$_POST['range'];
+	else if (isset($_GET['range']))$range =$_GET['range'];
 	if (!isset($range))
-		$range = 1;
+		$range   = 1;
+
 
 	$parse['who']    = "<option value=\"1\"". (($who == "1") ? " SELECTED" : "") .">".$lang['st_player']."</option>";
 	$parse['who']   .= "<option value=\"2\"". (($who == "2") ? " SELECTED" : "") .">".$lang['st_alliance']."</option>";
@@ -103,7 +107,7 @@ function ShowStatisticsPage($CurrentUser)
 		}
 
 		$parse['range'] = "";
-
+		if(!isset($LastPage))$LastPage=0;
 		for ($Page = 0; $Page <= $LastPage; $Page++)
 		{
 			$PageValue      = ($Page * 100) + 1;
@@ -171,7 +175,7 @@ function ShowStatisticsPage($CurrentUser)
 		}
 
 		$parse['range'] = "";
-
+		if(!isset($LastPage))$LastPage=0;
 		for ($Page = 0; $Page <= $LastPage; $Page++)
 		{
 			$PageValue      = ($Page * 100) + 1;
@@ -236,7 +240,8 @@ function ShowStatisticsPage($CurrentUser)
 					$parse['player_mes']      = "<a href=\"game.php?page=messages&mode=write&id=" . $StatRow['id'] . "\"><img src=\"" . $dpath . "img/m.gif\" border=\"0\" title=\"Escribir un mensaje\" /></a>";
 				else
 					$parse['player_mes']      = "";
-
+				if(!isset($UsrRow['ally_name']))$UsrRow['ally_name']="";
+				if(!isset($CurrentUser['ally_name']))$CurrentUser['ally_name']="";
 				if ($UsrRow['ally_name'] == $CurrentUser['ally_name'])
 				{
 					$parse['player_alliance'] = "<a href=\"game.php?page=alliance&mode=ainfo&a=".$StatRow['ally_id']."\"><font color=\"#33CCFF\">".$StatRow['ally_name']."</font></a>";

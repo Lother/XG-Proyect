@@ -25,7 +25,8 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 	{
 		global $pricelist, $resource, $reslist, $game_config;
 
-
+		if(!isset($planet[$resource[$Element]]))$planet[$resource[$Element]]=0;
+		if(!isset($user[$resource[$Element]]))$user[$resource[$Element]]=0;
 		$level = ($planet[$resource[$Element]]) ? $planet[$resource[$Element]] : $user[$resource[$Element]];
 		if       (in_array($Element, $reslist['build']))
 		{

@@ -35,6 +35,7 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 			{
 				if ($Array != '')
 				{
+					if(!isset($AcumTime))$AcumTime=0;
 					$Item              = explode(',', $Array);
 					$AcumTime		   += GetBuildingTime ($CurrentUser, $CurrentPlanet, $Item[0]);
 					$BuildArray[$Node] = array($Item[0], $Item[1], $AcumTime);
@@ -55,7 +56,9 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 					{
 						if ( $Count > 0 )
 						{
+							if(!isset($CurrentPlanet['b_hangar']))$CurrentPlanet['b_hangar']=0;
 							$CurrentPlanet['b_hangar'] -= $BuildTime;
+							if(!isset($Builded[$Element]))$Builded[$Element]=0;
 							$Builded[$Element]++;
 							$CurrentPlanet[$resource[$Element]]++;
 							$Count--;

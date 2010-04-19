@@ -21,6 +21,8 @@
 
 if(!defined('INSIDE')){ die(header("location:../../"));}
 
+include_once($xgp_root . 'includes/functions/IsTechnologieAccessible.' . $phpEx);
+include_once($xgp_root . 'includes/functions/GetElementPrice.' . $phpEx);
 class ShowResearchPage
 {
 	private function CheckLabSettingsInQueue ($CurrentPlanet)
@@ -35,6 +37,7 @@ class ShowResearchPage
 
 				for($i = 0; $i < MAX_BUILDING_QUEUE_SIZE; $i++)
 				{
+					if(!isset($QueueArray[$i]))$QueueArray[$i]="";
 					$ListIDArray	= explode (",", $QueueArray[$i]);
 					$Element		= $ListIDArray[0];
 
@@ -47,7 +50,8 @@ class ShowResearchPage
 			{
 				$CurrentBuilding = $CurrentQueue;
 			}
-
+			if(!isset($Element))$Element=0;
+			if(!isset($CurrentBuilding))$CurrentBuilding=0;
 			if ($CurrentBuilding == 31 or $Element == 31) // ADDED (or $Element == 31) BY LUCKY
 			{
 				$return = false;
@@ -71,6 +75,8 @@ class ShowResearchPage
 
 		if ($userfactor)
 		{
+			if(!isset($planet[$resource[$Element]]))$planet[$resource[$Element]]=0;
+			if(!isset($user[$resource[$Element]]))$user[$resource[$Element]]=0;
 			$level = ($planet[$resource[$Element]]) ? $planet[$resource[$Element]] : $user[$resource[$Element]];
 		}
 
@@ -114,8 +120,7 @@ class ShowResearchPage
 	{
 		global $lang, $resource, $reslist, $phpEx, $dpath, $game_config, $_GET;
 
-		include_once($xgp_root . 'includes/functions/IsTechnologieAccessible.' . $phpEx);
-		include_once($xgp_root . 'includes/functions/GetElementPrice.' . $phpEx);
+
 
 		$PageParse			= $lang;
 		$NoResearchMessage 	= "";
@@ -156,7 +161,7 @@ class ShowResearchPage
 						{
 							$WorkingPlanet = $CurrentPlanet;
 						}
-
+						if(!isset($ThePlanet['b_tech_id']))$ThePlanet['b_tech_id']=0;
 						switch($TheCommand)
 						{
 							case 'cancel':
@@ -188,6 +193,7 @@ class ShowResearchPage
 								}
 								break;
 						}
+						if(!isset($UpdateData))$UpdateData=0;
 						if ($UpdateData == true)
 						{
 							$QryUpdatePlanet  = "UPDATE {{table}} SET ";
@@ -327,6 +333,7 @@ class ShowResearchPage
 						}
 					}
 					$RowParse['tech_link']  = $TechnoLink;
+					if(!isset($TechnoList))$TechnoList="";
 					$TechnoList            .= parsetemplate($TechRowTPL, $RowParse);
 				}
 			}
@@ -334,6 +341,7 @@ class ShowResearchPage
 
 		$PageParse['noresearch']  = $NoResearchMessage;
 		$PageParse['technolist']  = $TechnoList;
+		if(!isset($Page))$Page="";
 		$Page                    .= parsetemplate(gettemplate('buildings/buildings_research'), $PageParse);
 
 		display($Page);

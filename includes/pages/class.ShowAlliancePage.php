@@ -131,6 +131,7 @@ class ShowAlliancePage
 
 	private function MessageForm($Title, $Message, $Goto = '', $Button = ' ok ', $TwoLines = false)
 	{
+		if(!isset($Form ))$Form ="";
 		$Form .= "<div id=\"content\"><form action=\"". $Goto ."\" method=\"post\">";
 		$Form .= "<table width=\"519\">";
 		$Form .= "<tr>";
@@ -157,7 +158,21 @@ class ShowAlliancePage
 		global $dpath, $phpEx, $lang;
 
 		$parse = $lang;
-
+		if(!isset($_GET['mode']))$_GET['mode']="";
+		if(!isset($_GET['a']))$_GET['a']="";
+		if(!isset($_GET['sort1']))$_GET['sort1']="";
+		if(!isset($_GET['sort2']))$_GET['sort2']="";
+		if(!isset($_GET['d']))$_GET['d']="";
+		if(!isset($_GET['edit']))$_GET['edit']="";
+		if(!isset($_GET['rank']))$_GET['rank']="";
+		if(!isset($_GET['kick']))$_GET['kick']="";
+		if(!isset($_GET['id']))$_GET['id']="";
+		if(!isset($_GET['yes']))$_GET['yes']="";
+		if(!isset($_GET['allyid']))$_GET['allyid']="";
+		if(!isset($_GET['show']))$_GET['show']="";
+		if(!isset($_GET['sendmail']))$_GET['sendmail']="";
+		if(!isset($_GET['t']))$_GET['t']="";
+		if(!isset($_GET['tag']))$_GET['tag']="";
 		//MODO PRINCIPAL
 		$mode = $_GET['mode'];
 		if (empty($mode))   { unset($mode); }
@@ -236,6 +251,8 @@ class ShowAlliancePage
 		// EN ESTE CASO EL USUARIO NO SE ENCUENTRA AUN EN NINGUNA ALIANZA
 		if ($CurrentUser['ally_id'] == 0)
 		{	//CREAR ALIANZA
+			if(!isset($mode))$mode="";
+			if(!isset($ally['ally_owner']))$ally['ally_owner']=0;
 			if ($mode == 'make' && $CurrentUser['ally_request'] == 0)
 			{
 				if ($yes == 1 && $_POST)
@@ -273,8 +290,10 @@ class ShowAlliancePage
 					str_replace('%s', $_POST['atag'], $lang['al_created']) . "<br><br>", "", $lang['al_continue']);
 				}
 				else
+				{
+					if(!isset($page))$page="";
 					$page .= parsetemplate(gettemplate('alliance/alliance_make'), $parse);
-
+				}
 				display($page);
 			}
 			//BUSCAR ALIANZA
@@ -297,7 +316,7 @@ class ShowAlliancePage
 
 							$parse['result'] .= parsetemplate(gettemplate('alliance/alliance_searchresult_row'), $searchData);
 						}
-
+						
 						$page .= parsetemplate(gettemplate('alliance/alliance_searchresult_table'), $parse);
 					}
 				}
@@ -517,7 +536,7 @@ class ShowAlliancePage
 						$u['ally_register_time'] = date("Y-m-d h:i:s", $u['ally_register_time']);
 					else
 						$u['ally_register_time'] = "-";
-
+					if(!isset($page_list))$page_list="";
 					$page_list .= parsetemplate(gettemplate('alliance/alliance_memberslist_row'), $u);
 				}
 
@@ -748,6 +767,8 @@ class ShowAlliancePage
 		// < ----------------------------------------------------- EDICIONES GENERALES DE LA ALIANZA ----------------------------------------------------- >
 			if ($mode == 'admin' && $edit == 'ally')
 			{
+				if ($ally['ally_owner'] != $CurrentUser['id'] && $user_admin == false)
+					header("location:game.". $phpEx . "?page=alliance",2);				
 				if ($t != 1 && $t != 2 && $t != 3)
 				{
 					$t = 1;
@@ -763,7 +784,8 @@ class ShowAlliancePage
 						$_POST['text'] 			= stripslashes($_POST['text']);
 					}
 				}
-
+				if(!isset($_POST['options']))$_POST['options']=0;
+				if(!isset($_POST['t']))$_POST['t']=0;
 				if ($_POST['options'])
 				{
 					$ally['ally_owner_range'] 		= mysql_escape_string(htmlspecialchars(strip_tags($_POST['owner_range'])));
@@ -1051,17 +1073,17 @@ class ShowAlliancePage
 			{
 				if ($ally['ally_owner'] != $CurrentUser['id'] && !$user_admin)
 					header("location:game.". $phpEx . "?page=alliance",2);
-
-				if ($_POST['nombre'] && !empty($_POST['nombre']))
+				if(!isset($_POST['nombre']))$_POST['nombre']="";
+				if ($_POST['nombre'])
 				{
 					$ally['ally_name'] = mysql_escape_string(strip_tags($_POST['nombre']));
 					doquery("UPDATE {{table}} SET `ally_name` = '". $ally['ally_name'] ."' WHERE `id` = '". $CurrentUser['ally_id'] ."';", 'alliance');
 					doquery("UPDATE {{table}} SET `ally_name` = '". $ally['ally_name'] ."' WHERE `ally_id` = '". $ally['id'] ."';", 'users');
 				}
 
-				$parse[caso] 		= $lang['al_name'];
-				$parse[caso_cng]	= 'nombre';
-				$parse[caso_titulo]	= $lang['al_new_name'];
+				$parse['caso'] 		= $lang['al_name'];
+				$parse['caso_cng']	= 'nombre';
+				$parse['caso_titulo']	= $lang['al_new_name'];
 
 				display(parsetemplate(gettemplate('alliance/alliance_admin_rename'), $parse));
 			}
@@ -1182,6 +1204,7 @@ class ShowAlliancePage
 						$lang['requests'] = "<tr><th>".$lang['al_requests']."</th><th><a href=\"game.php?page=alliance&mode=admin&edit=requests\">{$request_count} ".$lang['al_new_requests']."</a></th></tr>";
 				}
 				// SALIR DE LA ALIANZA
+				if(!isset($lang['ally_owner']))$lang['ally_owner']="";
 				if ($ally['ally_owner'] != $CurrentUser['id'])
 				{
 					$lang['ally_owner'] .= "<table width=\"519\">";

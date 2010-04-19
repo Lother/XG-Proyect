@@ -54,13 +54,23 @@ function ShowImperiumPage($CurrentUser)
 		$f = array('file_images', 'file_names', 'file_coordinates', 'file_fields', 'file_metal', 'file_crystal', 'file_deuterium', 'file_energy');
 		for ($k = 0; $k < 8; $k++)
 		{
+			if(!isset($parse[$f[$k]]))$parse[$f[$k]]="";
 			$data['text'] = $datat[$k];
 			$parse[$f[$k]] .= parsetemplate(gettemplate('empire/empire_row'), $data);
 		}
 
 		foreach ($resource as $i => $res)
 		{
+			if(!isset($p[$resource[$i]]))$p[$resource[$i]]=0;
+			if(!isset($CurrentUser[$resource[$i]]))$CurrentUser[$resource[$i]]=0;
+			if(!isset($p['id']))$p['id']=0;
+			if(!isset($p['planet_type']))$p['planet_type']=0;
+			if(!isset($p[$resource[$i]]))$p[$resource[$i]]=0;
+			if(!isset($reslist['tech']))$reslist['tech']=0;
+			if(!isset($reslist['fleet']))$reslist['fleet']=0;
+			if(!isset($reslist['defense']))$reslist['defense']=0;
 			$data['text'] = ($p[$resource[$i]] == 0 && $CurrentUser[$resource[$i]] == 0) ? '-' : ((in_array($i, $reslist['build'])) ? "<a href=\"game.php?page=buildings&cp={$p['id']}&amp;re=0&amp;planettype={$p['planet_type']}\">{$p[$resource[$i]]}</a>" : ((in_array($i, $reslist['tech'])) ? "<a href=\"game.php?page=buildings&mode=research&cp={$p['id']}&amp;re=0&amp;planettype={$p['planet_type']}\">{$CurrentUser[$resource[$i]]}</a>" : ((in_array($i, $reslist['fleet'])) ? "<a href=\"game.php?page=buildings&mode=fleet&cp={$p['id']}&amp;re=0&amp;planettype={$p['planet_type']}\">{$p[$resource[$i]]}</a>" : ((in_array($i, $reslist['defense'])) ? "<a href=\"game.php?page=buildings&mode=defense&cp={$p['id']}&amp;re=0&amp;planettype={$p['planet_type']}\">{$p[$resource[$i]]}</a>" : '-'))));
+			if(!isset($r[$i]))$r[$i]="";
 			$r[$i] .= parsetemplate(gettemplate('empire/empire_row'), $data);
 		}
 	}
@@ -74,6 +84,7 @@ function ShowImperiumPage($CurrentUser)
 		foreach ($reslist[$m[$j]] as $a => $i)
 		{
 			$data['text'] = $lang['tech'][$i];
+			if(!isset($parse[$n[$j]]))$parse[$n[$j]]="";
 			$parse[$n[$j]] .= "<tr>" . parsetemplate(gettemplate('empire/empire_row'), $data) . $r[$i] . "</tr>";
 		}
 	}

@@ -53,6 +53,7 @@ function ShowFleet1Page($CurrentUser, $CurrentPlanet)
 	$FleetHiddenBlock  = "";
 	foreach ($reslist['fleet'] as $n => $i)
 	{
+		if(!isset($_POST["ship$i"]))$_POST["ship$i"]=0;
 		if ($i > 201 && $i < 218 && $_POST["ship$i"] > "0")
 		{
 			if (($_POST["ship$i"] > $CurrentPlanet[$resource[$i]]) OR (!ctype_digit( $_POST["ship$i"] )))
@@ -60,7 +61,9 @@ function ShowFleet1Page($CurrentUser, $CurrentPlanet)
 			else
 			{
 				$fleet['fleetarray'][$i]   = $_POST["ship$i"];
+				if(!isset($fleet['fleetlist']))$fleet['fleetlist']="";
 				$fleet['fleetlist']       .= $i . "," . $_POST["ship$i"] . ";";
+				if(!isset($fleet['amount']))$fleet['amount']="";
 				$fleet['amount']          += $_POST["ship$i"];
 				$FleetHiddenBlock         .= "<input type=\"hidden\" name=\"consumption". $i ."\" value=\"". GetShipConsumption ( $i, $CurrentUser ) ."\" />";
 				$FleetHiddenBlock         .= "<input type=\"hidden\" name=\"speed". $i ."\"       value=\"". GetFleetMaxSpeed ( "", $i, $CurrentUser ) ."\" />";
@@ -93,15 +96,17 @@ function ShowFleet1Page($CurrentUser, $CurrentPlanet)
 	$parse['g'] 					= $g;
 	$parse['s'] 					= $s;
 	$parse['p'] 					= $p;
+	if(!isset($parse['options_planettype']))$parse['options_planettype']="";
 	$parse['options_planettype']   .= "<option value=\"1\"". (($t == 1) ? " SELECTED" : "" ) .">".$lang['fl_planet']."</option>";
 	$parse['options_planettype']   .= "<option value=\"2\"". (($t == 2) ? " SELECTED" : "" ) .">".$lang['fl_debris']."</option>";
 	$parse['options_planettype']   .= "<option value=\"3\"". (($t == 3) ? " SELECTED" : "" ) .">".$lang['fl_moon']."</option>";
 
 	foreach ($speed as $a => $b)
 	{
+		if(!isset($parse['options']))$parse['options']="";
 		$parse['options'] .= "<option value=\"".$a."\">".$b."</option>";
 	}
-
+	if(!isset($ShortCut))$ShortCut="";
 	if ($CurrentUser['fleet_shortcut'])
 	{
 		$scarray = explode("\r\n", $CurrentUser['fleet_shortcut']);
@@ -147,7 +152,7 @@ function ShowFleet1Page($CurrentUser, $CurrentPlanet)
 
 	$parse['shortcut'] 	= $ShortCut;
 	$kolonien      		= SortUserPlanets($CurrentUser);
-
+	if(!isset($ColonyList))$ColonyList="";
 	if (mysql_num_rows($kolonien) > 1)
 	{
 		$i = 0;
@@ -219,7 +224,7 @@ function ShowFleet1Page($CurrentUser, $CurrentPlanet)
 			}
 		}
 	}
-
+	if(!isset($aks_fleets_mr))$aks_fleets_mr="";
 	$parse['asc'] 				= $aks_fleets_mr;
 	$parse['maxepedition'] 		= $_POST['maxepedition'];
 	$parse['curepedition'] 		= $_POST['curepedition'];

@@ -24,15 +24,19 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 function ShowMessagesPage($CurrentUser)
 {
 	global $xgp_root, $phpEx, $game_config, $dpath, $lang;
-
+	if(!isset($_GET['id']))$_GET['id']=0;
+	if(!isset($_GET['messcat']))$_GET['messcat']="";
+	if(!isset($_GET["mode"]))$_GET["mode"]="";
+	
 	$OwnerID       = $_GET['id'];
 	$MessCategory  = $_GET['messcat'];
 	$MessPageMode  = $_GET["mode"];
-	$DeleteWhat    = $_POST['deletemessages'];
 
-	if (isset ($DeleteWhat))
+	if (isset ($_POST['deletemessages']))
+	{
+		$DeleteWhat = $_POST['deletemessages'];
 		$MessPageMode = "delete";
-
+	}
 	$UsrMess       = doquery("SELECT * FROM {{table}} WHERE `message_owner` = '".$CurrentUser['id']."' ORDER BY `message_time` DESC;", 'messages');
 	$UnRead        = doquery("SELECT * FROM {{table}} WHERE `id` = '". $CurrentUser['id'] ."';", 'users', true);
 
@@ -43,6 +47,8 @@ function ShowMessagesPage($CurrentUser)
 	{
 		if (in_array($MessType, $MessageType))
 		{
+			if(!isset($messfields[$MessType]))$messfields[$MessType]="";
+			if(!isset($UnRead[$messfields[$MessType]]))$UnRead[$messfields[$MessType]]="";
 			$WaitingMess[$MessType] = $UnRead[$messfields[$MessType]];
 			$TotalMess[$MessType]   = 0;
 		}
@@ -54,7 +60,7 @@ function ShowMessagesPage($CurrentUser)
 		$TotalMess[$MessType] += 1;
 		$TotalMess[100]       += 1;
 	}
-
+	if(!isset($page))$page="";
 	$page  .= "<script language=\"JavaScript\">\n";
 	$page .= "function f(target_url, win_name) {\n";
 	$page .= "var new_win = window.open(target_url,win_name,'resizable=yes,scrollbars=yes,menubar=no,toolbar=no,width=800,height=600,top=0,left=0');\n";
@@ -157,7 +163,8 @@ function ShowMessagesPage($CurrentUser)
 					}
 				}
 			}
-			$MessCategory = $_POST['category'];
+			if(isset($_POST['category']))$MessCategory=$_POST['category'];
+			
 			header("location:game.php?page=messages");
 		break;
 		case 'show':

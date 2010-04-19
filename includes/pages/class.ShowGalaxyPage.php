@@ -171,6 +171,10 @@ class ShowGalaxyPage extends GalaxyRows
 				}
 			}
 
+			if(!isset($GalaxyRowPlanet))$GalaxyRowPlanet=0;
+			if(!isset($GalaxyRowPlayer))$GalaxyRowPlayer=0;
+			if(!isset($GalaxyRowMoon))$GalaxyRowMoon=0;
+			
 			$Result .= $this->GalaxyRowPos        ( $GalaxyRow, $Galaxy, $System, $Planet, 1 );
 			$Result .= $this->GalaxyRowPlanet     ( $GalaxyRow, $GalaxyRowPlanet, $GalaxyRowPlayer, $Galaxy, $System, $Planet, 1, $HavePhalanx, $CurrentGalaxy, $CurrentSystem);
 			$Result .= $this->GalaxyRowPlanetName ( $GalaxyRow, $GalaxyRowPlanet, $GalaxyRowPlayer, $Galaxy, $System, $Planet, 1, $HavePhalanx, $CurrentGalaxy, $CurrentSystem);
@@ -236,7 +240,8 @@ class ShowGalaxyPage extends GalaxyRows
 
 			if ($_POST["system"] > MAX_SYSTEM_IN_GALAXY)
 				$_POST["system"] = MAX_SYSTEM_IN_GALAXY;
-
+			if(!isset($_POST["galaxyLeft"]))$_POST["galaxyLeft"]=0;
+			if(!isset($_POST["galaxyRight"]))$_POST["galaxyRight"]=0;
 			if ($_POST["galaxyLeft"])
 			{
 				if ($_POST["galaxy"] < 1)
@@ -277,6 +282,8 @@ class ShowGalaxyPage extends GalaxyRows
 				$galaxy = $_POST["galaxy"];
 			}
 
+			if(!isset($_POST["systemLeft"]))$_POST["systemLeft"]=0;
+			if(!isset($_POST["systemRight"]))$_POST["systemRight"]=0;
 			if ($_POST["systemLeft"])
 			{
 				if ($_POST["system"] < 1)
@@ -332,7 +339,7 @@ class ShowGalaxyPage extends GalaxyRows
 			$galaxy        = 1;
 			$system        = 1;
 		}
-
+		if(!isset($_POST["system"]))$_POST["system"]=0;
 		if ( ( $CurrentPlanet['system'] != ( $_POST["system"] - 1 ) ) && ( $mode != 0 ) && ( $CurrentPlanet['deuterium'] < 10 ) )
 		{
 			die (message($lang['gl_no_deuterium_to_view_galaxy'], "game.php?page=galaxy&mode=0", 2));
@@ -349,7 +356,8 @@ class ShowGalaxyPage extends GalaxyRows
 
 		$planetcount = 0;
 		$lunacount   = 0;
-
+		if(!isset($planet))$planet=0;
+		if(!isset($_GET['current']))$_GET['current']=0;
 		$parse						= $lang;
 		$parse['galaxy']			= $galaxy;
 		$parse['system']			= $system;

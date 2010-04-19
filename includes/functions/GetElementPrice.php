@@ -26,8 +26,11 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 		global $pricelist, $resource, $lang;
 
 		if ($userfactor)
+		{
+			if(!isset($planet[$resource[$Element]]))$planet[$resource[$Element]]=0;
+			if(!isset($user[$resource[$Element]]))$user[$resource[$Element]]=0;
 			$level = ($planet[$resource[$Element]]) ? $planet[$resource[$Element]] : $user[$resource[$Element]];
-
+		}
 		$is_buyeable = true;
 
 		$array = array(
@@ -40,6 +43,7 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 		$text = $lang['fgp_require'];
 		foreach ($array as $ResType => $ResTitle)
 		{
+			if(!isset($pricelist[$Element][$ResType]))$pricelist[$Element][$ResType]=0;
 			if ($pricelist[$Element][$ResType] != 0)
 			{
 				$text .= $ResTitle . ": ";

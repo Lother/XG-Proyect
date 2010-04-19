@@ -32,6 +32,7 @@ class ShowOfficierPage
 			$enabled = true;
 			foreach($requeriments[$Officier] as $ReqOfficier => $OfficierLevel)
 			{
+				if(!isset($CurrentUser[$resource[$ReqOfficier]]))$CurrentUser[$resource[$ReqOfficier]]=0;
 				if ($CurrentUser[$resource[$ReqOfficier]] && $CurrentUser[$resource[$ReqOfficier]] >= $OfficierLevel)
 				{
 					$enabled = 1;
@@ -42,6 +43,10 @@ class ShowOfficierPage
 				}
 			}
 		}
+		
+		if(!isset($resource[$Officier]))$resource[$Officier]=0;
+		if(!isset($pricelist[$Officier]['max']))$pricelist[$Officier]['max']=0;
+		if(!isset($CurrentUser[$resource[$Officier]]))$CurrentUser[$resource[$Officier]]=0;
 		if ($CurrentUser[$resource[$Officier]] < $pricelist[$Officier]['max']  )
 		{
 			return 1;
@@ -124,13 +129,13 @@ class ShowOfficierPage
 					{
 						$bloc['off_link'] = "<font color=\"red\">".$lang['of_max_lvl']."</font>";
 					}
-
+					if(!isset($parse['disp_off_tbl']))$parse['disp_off_tbl']="";
 					$parse['disp_off_tbl'] .= parsetemplate( gettemplate('officier/officier_row'), $bloc );
 				}
 			}
 			$page = parsetemplate( gettemplate('officier/officier_table'), $parse);
 		}
-
+		if(!isset($page))$page="";
 		display($page);
 	}
 }

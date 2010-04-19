@@ -30,6 +30,8 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 			if ($CurrentUser['b_tech_planet'] != $CurrentPlanet['id'])
 				$WorkingPlanet = doquery("SELECT * FROM {{table}} WHERE `id` = '". $CurrentUser['b_tech_planet'] ."';", 'planets', true);
 
+			if(!isset($WorkingPlanet))$WorkingPlanet=0;
+			if(!isset($CurrentPlanet))$CurrentPlanet=0;
 			if ($WorkingPlanet)
 				$ThePlanet = $WorkingPlanet;
 			else

@@ -57,7 +57,11 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 		9 => $lang['type_mission'][9],
 		15 => $lang['type_mission'][15]
 	);
-
+	if(!isset($_GET['galaxy']))$_GET['galaxy']=0;
+	if(!isset($_GET['system']))$_GET['system']=0;
+	if(!isset($_GET['planet']))$_GET['planet']=0;
+	if(!isset($_GET['planettype']))$_GET['planettype']=0;
+	if(!isset($_GET['target_mission']))$_GET['target_mission']=0;
 	$galaxy         = intval($_GET['galaxy']);
 	$system         = intval($_GET['system']);
 	$planet         = intval($_GET['planet']);
@@ -85,10 +89,11 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 	while ($f = mysql_fetch_array($fq))
 	{
 		$i++;
+		if(!isset($FleetPageRow))$FleetPageRow="";
 		$FleetPageRow .= "<tr height=20>";
 		$FleetPageRow .= "<th>".$i."</th>";
 		$FleetPageRow .= "<th>";
-		$FleetPageRow .= "<a>". $missiontype[$f[fleet_mission]] ."</a>";
+		$FleetPageRow .= "<a>". $missiontype[$f['fleet_mission']] ."</a>";
 		if (($f['fleet_start_time'] + 1) == $f['fleet_end_time'])
 			$FleetPageRow .= "<br><a title=\"".$lang['fl_returning']."\">".$lang['fl_r']."</a>";
 		else
@@ -111,10 +116,10 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 				}
 			}
 		}
-		$FleetPageRow .= "\">". pretty_number($f[fleet_amount]) ."</a></th>";
-		$FleetPageRow .= "<th>[".$f[fleet_start_galaxy].":".$f[fleet_start_system].":".$f[fleet_start_planet]."]</th>";
+		$FleetPageRow .= "\">". pretty_number($f['fleet_amount']) ."</a></th>";
+		$FleetPageRow .= "<th>[".$f['fleet_start_galaxy'].":".$f['fleet_start_system'].":".$f['fleet_start_planet']."]</th>";
 		$FleetPageRow .= "<th>". date("d M Y H:i:s", $f['fleet_start_time']) ."</th>";
-		$FleetPageRow .= "<th>[".$f[fleet_end_galaxy].":".$f[fleet_end_system].":".$f[fleet_end_planet]."]</th>";
+		$FleetPageRow .= "<th>[".$f['fleet_end_galaxy'].":".$f['fleet_end_system'].":".$f['fleet_end_planet']."]</th>";
 		$FleetPageRow .= "<th>". date("d M Y H:i:s", $f['fleet_end_time']) ."</th>";
 		$FleetPageRow .= "<th><font color=\"lime\"><div id=\"time_0\"><font>". pretty_time(floor($f['fleet_end_time'] + 1 - time())) ."</font></th>";
 		$FleetPageRow .= "<th>";
@@ -126,7 +131,7 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 				$FleetPageRow .= "<input value=\"".$lang['fl_send_back']."\" type=\"submit\" name=\"send\">";
 				$FleetPageRow .= "</form>";
 
-			if ($f[fleet_mission] == 1)
+			if ($f['fleet_mission'] == 1)
 			{
 				$FleetPageRow .= "<form action=\"game.php?page=fleetACS\" method=\"post\">";
 				$FleetPageRow .= "<input name=\"fleetid\" value=\"". $f['fleet_id'] ."\" type=\"hidden\">";
@@ -143,6 +148,7 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 
 	if ($i == 0)
 	{
+		if(!isset($FleetPageRow))$FleetPageRow="";
 		$FleetPageRow .= "<tr>";
 		$FleetPageRow .= "<th>-</th>";
 		$FleetPageRow .= "<th>-</th>";
@@ -168,6 +174,7 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 	{
 		if ($CurrentPlanet[$resource[$i]] > 0)
 		{
+			if(!isset($page))$page="";
 			$page .= "<tr height=\"20\">";
 			$page .= "<th>";
 			$page .= ($i == 212)? "": "<a title=\"" . $lang['fl_speed_title'] . (GetFleetMaxSpeed ( "", $i, $CurrentUser )) ."\">";
@@ -176,6 +183,7 @@ function ShowFleetPage($CurrentUser, $CurrentPlanet)
 			$ShipData .= "<input type=\"hidden\" name=\"maxship". $i ."\" value=\"". $CurrentPlanet[$resource[$i]] ."\" />";
 			$ShipData .= "<input type=\"hidden\" name=\"consumption". $i ."\" value=\"". GetShipConsumption ( $i, $CurrentUser ) ."\" />";
 			$ShipData .= "<input type=\"hidden\" name=\"speed" .$i ."\" value=\"" . GetFleetMaxSpeed ("", $i, $CurrentUser) . "\" />";
+			if(!isset($pricelist[$i]['capacity']))$pricelist[$i]['capacity']=0;
 			$ShipData .= "<input type=\"hidden\" name=\"capacity". $i ."\" value=\"". $pricelist[$i]['capacity'] ."\" />";
 			$page .= "</th>";
 

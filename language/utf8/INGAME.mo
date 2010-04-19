@@ -574,7 +574,7 @@ $lang['res']['descriptions'] = array(
 609 => '<br><br>這些人員都是特別專精於利用護盾系統與防禦砲塔做整合成單一系統，可以做到護盾與反擊砲火的不干擾作用，唯有他們可以使帝國建設全新的大型防禦系統。<br><br><font color=\"red\">可獲得 行星防禦軌道系統 設計圖</font>',
 610 => '<br><br>這些情報人員包含各種專才，他們可以利用各種手段將取得的情報與間諜衛星連繫傳回，由於他們是最精英的人員，他們幾乎不會因為人為疏失逮捕，反而是間諜衛星的存續變成關鍵。<br><br><font color=\"red\">可提升 5點 間諜探測技術等級.最大等級: 2</font>',
 611 => '<br><br>聘請享名在外的艦隊總司令，他可以利用他的經驗為帝國不花其他代價，就可以增加艦隊派遣的上限數量。對於那些龐大的帝國，特別是為了艦隊發派問題傷透腦筋時，他可以幫助解決許多問題。<br><br><font color=\"red\">+3 電腦技術.最大等級: 3</font>',
-612 => '<br><br>這些人都是不要命的瘋子，他們只有一種念頭，就是建立前所未見的軍事武器，而不管其代價為何，因此只要供應他們足夠的條件，他們就有辦法做出各種東西，如今他們最希望做出的則是『死星』。 !<br><br><font color=\"red\">2 被死星建造速度.最大等級: 1</font>',
+612 => '<br><br>這些人都是不要命的瘋子，他們只有一種念頭，就是建立前所未見的軍事武器，而不管其代價為何，因此只要供應他們足夠的條件，他們就有辦法做出各種東西，如今他們最希望做出的則是『死星』。 !<br><br><font color=\"red\">加倍死星產量.最大等級: 1</font>',
 613 => '<br><br>你正式升任成為一位帝國元帥時，你的所屬領地就可以算上是名副其實真正的國家了。這個時候你的帝國所有權限就正式完全解鎖，這時候你所指揮的艦隊便可以利用完整的星圖和艦艇內存的限界解除，進而達到艦隊移動大幅縮短時間，不過你需要經過三次解鎖才能完整取得所有的功能。<br><br><font color=\"red\">可提升 25% 艦隊速度.最大等級: 3</font>',
 614 => '<br><br>當你正式升任為帝國總理職位時，你將可以取得一些戰略兵器的使用許可權，這使的你的國度可以建立起全新的戰略級兵器。<br><br><font color=\"red\">可獲得 索拉里要塞 設計圖。最大等級: 1</font>',
 615 => '<br><br>成為至高無上的宇宙征服者!<br><br><font color=\"red\">可獲得 無畏級戰列艦 設計圖.最大等級: 1</font>',
@@ -1131,6 +1131,7 @@ $lang['bn_by']								= '執行者';
 
 //----------------------------------------------------------------------------//
 //SYSTEM
+$lang['sys_gcdrunits'] 						= "未知字串編號001  發現請回報";
 $lang['sys_attacker_lostunits'] 			= "攻擊者損失了";
 $lang['sys_defender_lostunits'] 			= "防禦者損失了";
 $lang['sys_units']							= "單位";
@@ -1159,7 +1160,7 @@ $lang['sys_defender_won'] 					= "防禦者贏得了這場戰鬥";
 $lang['sys_both_won'] 						= "戰鬥不分勝負";
 $lang['sys_stealed_ressources'] 			= "獲得";
 $lang['sys_and']							= "與";
-$lang['sys_mess_tower'] 					= "Control Tower";
+$lang['sys_mess_tower'] 					= "運輸報告";
 $lang['sys_mess_attack_report'] 			= "戰鬥報告";
 $lang['sys_spy_maretials'] 					= "資源";
 $lang['sys_spy_fleet'] 						= "艦隊";
@@ -1168,7 +1169,7 @@ $lang['sys_mess_qg'] 						= "探險報告";
 $lang['sys_mess_spy_report_moon']			= "(Moon)";
 $lang['sys_mess_spy_report'] 				= "間諜報告";
 $lang['sys_mess_spy_lostproba'] 			= "間諜衛星被發現的機率: %d %% ";
-$lang['sys_mess_spy_control'] 				= "Space Control";
+$lang['sys_mess_spy_control'] 				= "未知字串編號003  發現請回報";
 $lang['sys_mess_spy_activity'] 				= "間諜活動";
 $lang['sys_mess_spy_ennemyfleet'] 			= "有敵人的艦隊從";
 $lang['sys_mess_spy_seen_at'] 				= "靠近了你的星球";
@@ -1273,8 +1274,8 @@ $lang['cff_to_destination']					= '前往';
 // EXTRA LANGUAGE FUNCTIONS
 $lang['fcm_moon']							= '月球';
 $lang['fcp_colony']							= '殖民星';
-$lang['fgp_require']						= '申請: ';
-$lang['fgf_time']							= '維修時間: ';
+$lang['fgp_require']						= '花費資源: ';
+$lang['fgf_time']							= '花費時間: ';
 
 //----------------------------------------------------------------------------//
 // CombatReport.php

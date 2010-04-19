@@ -22,7 +22,31 @@
 function ShowFleet2Page($CurrentUser, $CurrentPlanet)
 {
 	global $resource, $pricelist, $reslist, $phpEx, $lang;
-
+	if(!isset($_POST['ship202']))$_POST['ship202']=0;
+	if(!isset($_POST['ship203']))$_POST['ship203']=0;
+	if(!isset($_POST['ship204']))$_POST['ship204']=0;
+	if(!isset($_POST['ship205']))$_POST['ship205']=0;
+	if(!isset($_POST['ship206']))$_POST['ship206']=0;
+	if(!isset($_POST['ship207']))$_POST['ship207']=0;
+	if(!isset($_POST['ship208']))$_POST['ship208']=0;
+	if(!isset($_POST['ship209']))$_POST['ship209']=0;
+	if(!isset($_POST['ship210']))$_POST['ship210']=0;
+	if(!isset($_POST['ship211']))$_POST['ship211']=0;
+	if(!isset($_POST['ship212']))$_POST['ship212']=0;
+	if(!isset($_POST['ship213']))$_POST['ship213']=0;
+	if(!isset($_POST['ship214']))$_POST['ship214']=0;
+	if(!isset($_POST['ship215']))$_POST['ship215']=0;
+	if(!isset($_POST['ship216']))$_POST['ship216']=0;
+	if(!isset($_POST['ship217']))$_POST['ship217']=0;
+	if(!isset($_POST['ship218']))$_POST['ship218']=0;
+	if(!isset($_POST['ship219']))$_POST['ship219']=0;
+	if(!isset($_POST['ship220']))$_POST['ship220']=0;
+	if(!isset($_POST['ship221']))$_POST['ship221']=0;
+	if(!isset($_POST['ship222']))$_POST['ship222']=0;
+	if(!isset($_POST['ship223']))$_POST['ship223']=0;
+	if(!isset($_POST['ship224']))$_POST['ship224']=0;
+	if(!isset($_POST['ship225']))$_POST['ship225']=0;
+	if(!isset($_POST['ship226']))$_POST['ship226']=0;
 	$parse			= $lang;
 	$galaxy     	= intval($_POST['galaxy']);
 	$system     	= intval($_POST['system']);
@@ -180,6 +204,7 @@ function ShowFleet2Page($CurrentUser, $CurrentPlanet)
 
 	foreach ($fleetarray as $Ship => $Count)
 	{
+		if(!isset($input_extra))$input_extra="";
 		$input_extra .= "<input type=\"hidden\" name=\"ship". $Ship ."\"        value=\"". $Count ."\" />\n";
 		$input_extra .= "<input type=\"hidden\" name=\"capacity". $Ship ."\"    value=\"". $pricelist[$Ship]['capacity'] ."\" />\n";
 		$input_extra .= "<input type=\"hidden\" name=\"consumption". $Ship ."\" value=\"". GetShipConsumption ( $Ship, $CurrentUser ) ."\" />\n";
@@ -188,7 +213,7 @@ function ShowFleet2Page($CurrentUser, $CurrentPlanet)
 
 	$parse['input_extra'] 			= $input_extra;
 	$parse['missionselector'] 		= $MissionSelector;
-
+	if(!isset($StayBlock))$StayBlock="";
 	if ($planet == 16)
 	{
 		$StayBlock .= "<tr height=\"20\">";

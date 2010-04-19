@@ -137,6 +137,7 @@ function ShowResourcesPage($CurrentUser, $CurrentPlanet)
 				{
 					$OptSelected    = "";
 				}
+				if(!isset($CurrRow['option']))$CurrRow['option']="";
 					$CurrRow['option'] .= "<option value=\"".$OptValue."\"".$OptSelected.">".$OptValue."%</option>";
 			}
 

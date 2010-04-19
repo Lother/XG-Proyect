@@ -61,7 +61,7 @@ if (INSTALL != true)
 	define('VERSION'		, (	$game_config['VERSION'] == ''	) ? "		" : "v".$game_config['VERSION']	);
 
 	includeLang('INGAME');
-
+	if(!isset($InLogin))$InLogin=0;
 	if ($InLogin != true)
 	{
 		include($xgp_root . 'includes/classes/class.CheckSession.'.$phpEx);

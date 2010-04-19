@@ -31,7 +31,9 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 
 			foreach($requeriments[$Element] as $ReqElement => $EleLevel)
 			{
-				if (@$user[$resource[$ReqElement]] && $user[$resource[$ReqElement]] >= $EleLevel)
+				if(!isset($user[$resource[$ReqElement]]))$user[$resource[$ReqElement]]=0;
+				if(!isset($planet[$resource[$ReqElement]]))$planet[$resource[$ReqElement]]=0;
+				if ($user[$resource[$ReqElement]] && $user[$resource[$ReqElement]] >= $EleLevel)
 				{
 					//BREAK
 				}

@@ -33,7 +33,9 @@ include($xgp_root . 'includes/functions/SetNextQueueElementOnTop.' . $phpEx);
 include($xgp_root . 'includes/functions/SortUserPlanets.' . $phpEx);
 include($xgp_root . 'includes/functions/UpdatePlanetBatimentQueueList.' . $phpEx);
 
-switch($_GET[page])
+if(!isset($_GET['page']))$_GET['page']="";
+if(!isset($_GET['mode']))$_GET['mode']="";
+switch($_GET['page'])
 {
 // ----------------------------------------------------------------------------------------------------------------------------------------------//
 	case'changelog':

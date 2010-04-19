@@ -122,6 +122,7 @@ function ShowOverviewPage($CurrentUser, $CurrentPlanet)
 		default:
 			if ($CurrentUser['new_message'] != 0)
 			{
+				if(!isset($Have_new_message))$Have_new_message="";
 				$Have_new_message .= "<tr>";
 				if ($CurrentUser['new_message'] == 1)
 				{
@@ -180,7 +181,10 @@ function ShowOverviewPage($CurrentUser, $CurrentPlanet)
 			//iss ye katilan filo////////////////////////////////////
 
 			// ### LUCKY , CODES ARE BELOW
-
+			if(!isset($hedefgalaksi))$hedefgalaksi=0;
+			if(!isset($hedefsistem))$hedefsistem=0;
+			if(!isset($hedefgezegen))$hedefgezegen=0;
+			if(!isset($filogrubu))$filogrubu=0;
 			$dostfilo = doquery("SELECT * FROM {{table}} WHERE `fleet_end_galaxy` = '" . $hedefgalaksi . "' AND `fleet_end_system` = '" . $hedefsistem . "' AND `fleet_end_planet` = '" . $hedefgezegen . "' AND `fleet_group` = '" . $filogrubu . "';", 'fleets');
 			$Record1 = 0;
 			while ($FleetRow = mysql_fetch_array($dostfilo)) {
@@ -271,6 +275,7 @@ function ShowOverviewPage($CurrentUser, $CurrentPlanet)
 			{
 				if ($CurrentUserPlanet["id"] != $CurrentUser["current_planet"] && $CurrentUserPlanet['planet_type'] != 3)
 				{
+					if(!isset($Coloneshow))$Coloneshow=0;
 					$Coloneshow++;
 					$AllPlanets .= "<th>". $CurrentUserPlanet['name'] ."<br>";
 					$AllPlanets .= "<a href=\"game.php?page=overview&cp=". $CurrentUserPlanet['id'] ."&re=0\" title=\"". $CurrentUserPlanet['name'] ."\"><img src=\"". $dpath ."planeten/small/s_". $CurrentUserPlanet['image'] .".jpg\" height=\"50\" width=\"50\"></a><br>";
@@ -345,12 +350,16 @@ function ShowOverviewPage($CurrentUser, $CurrentPlanet)
 			$StatRecord = doquery("SELECT `total_rank`,`total_points` FROM `{{table}}` WHERE `stat_type` = '1' AND `stat_code` = '1' AND `id_owner` = '" . $CurrentUser['id'] . "';", 'statpoints', true);
 
 			$parse['user_username']        = $CurrentUser['username'];
-
+			if(!isset($fpage))
+			{
+				$fpage=array();
+			}
 			if (count($fpage) > 0)
 			{
 				ksort($fpage);
 				foreach ($fpage as $time => $content)
 				{
+					if(!isset($flotten))$flotten="";
 					$flotten .= $content . "\n";
 				}
 			}
@@ -387,7 +396,8 @@ function ShowOverviewPage($CurrentUser, $CurrentPlanet)
 			{
 				$parse['building'] = $lang['ov_free'];
 			}
-
+			if(!isset($flotten))$flotten="";
+			if(!isset($Have_new_message))$Have_new_message="";
 			$parse['fleet_list']  			= $flotten;
 			$parse['Have_new_message'] 		= $Have_new_message;
 			$parse['planet_image'] 			= $CurrentPlanet['image'];

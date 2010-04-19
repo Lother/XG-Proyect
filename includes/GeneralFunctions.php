@@ -46,7 +46,7 @@ function is_email($email)
 function message ($mes, $dest = "", $time = "3", $topnav = false, $menu = true)
 {
 	$parse['mes']   = $mes;
-
+	if(!isset($page))$page="";
 	$page .= parsetemplate(gettemplate('message_body'), $parse);
 
 	if (!defined('IN_ADMIN'))
@@ -83,7 +83,7 @@ function display ($page, $topnav = true, $metatags = '', $AdminPage = false, $me
 	}
 
 	$DisplayPage .= "\n<center>\n". $page ."\n</center>\n";
-
+	if(isset($_GET['page'] ))$_GET['page'] ="";
 	if(!defined('LOGIN') && $_GET['page'] != 'galaxy')
 		$DisplayPage .= parsetemplate(gettemplate('footer'), $parse);
 
@@ -94,7 +94,8 @@ function display ($page, $topnav = true, $metatags = '', $AdminPage = false, $me
 
 
 	echo $DisplayPage;
-
+	if(!isset($user['authlevel']))$user['authlevel']=0;
+	if(!isset($game_config['debug']))$game_config['debug']=0;
 	if ($user['authlevel'] == 3 && $game_config['debug'] == 1)
 	{
 		$debug->echo_log();
@@ -225,6 +226,7 @@ function GetFleetMaxSpeed ($FleetArray, $Fleet, $Player)
 
 	if ($Fleet != 0)
 	{
+		if(!isset($speedalls[$Ship]))$speedalls[$Ship]=0;
 		$ShipSpeed = $speedalls[$Ship];
 		$speedalls = $ShipSpeed;
 	}

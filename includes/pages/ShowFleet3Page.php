@@ -433,6 +433,7 @@ function ShowFleet3Page($CurrentUser, $CurrentPlanet)
 
 	foreach ($fleetarray as $Ship => $Count)
 	{
+		if(!isset($fleet_list))$fleet_list="";
 		$fleet_list .= "</tr><tr height=\"20\">";
 		$fleet_list .= "<th>". $lang['tech'][$Ship] ."</th>";
 		$fleet_list .= "<th>". pretty_number($Count) ."</th>";

@@ -331,6 +331,8 @@ class ShowBuildingsPage
 		if (isset($_GET['cmd']))
 		{
 			$bDoItNow 	= false;
+			if(!isset($_GET['listid']))$_GET['listid']=0;
+			if(!isset($_GET['building']))$_GET['building']="";
 			$TheCommand = $_GET['cmd'];
 			$Element 	= $_GET['building'];
 			$ListID 	= $_GET['listid'];
@@ -365,7 +367,7 @@ class ShowBuildingsPage
 			{
 				$bDoItNow = true;
 			}
-
+			if(!isset($Element))$Element=0;
 			if ($Element == 31 && $CurrentUser["b_tech_planet"] != 0)
 			{
 				$bDoItNow = false;

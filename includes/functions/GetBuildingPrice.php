@@ -26,11 +26,16 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 		global $pricelist, $resource;
 
 		if ($Incremental)
+		{
+			if(!isset($CurrentPlanet[$resource[$Element]]))$CurrentPlanet[$resource[$Element]]=0;
+			if(!isset($CurrentUser[$resource[$Element]]))$CurrentUser[$resource[$Element]]=0;
 			$level = ($CurrentPlanet[$resource[$Element]]) ? $CurrentPlanet[$resource[$Element]] : $CurrentUser[$resource[$Element]];
+		}
 
 		$array = array('metal', 'crystal', 'deuterium', 'energy_max');
 		foreach ($array as $ResType)
 		{
+			if(!isset($pricelist[$Element][$ResType]))$pricelist[$Element][$ResType]=0;
 			if ($Incremental)
 				$cost[$ResType] = floor($pricelist[$Element][$ResType] * pow($pricelist[$Element]['factor'], $level));
 			else
@@ -52,6 +57,8 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 
 		if ($userfactor)
 		{
+			if(!isset($user[$resource[$Element]]))$user[$resource[$Element]]=0;
+			if(!isset($planet[$resource[$Element]]))$planet[$resource[$Element]]=0;
 			$level = ($planet[$resource[$Element]]) ? $planet[$resource[$Element]] : $user[$resource[$Element]];
 		}
 

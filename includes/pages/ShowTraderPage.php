@@ -142,6 +142,7 @@ function ShowTraderPage($CurrentUser, $CurrentPlanet)
 	}
 	else
 	{
+		if(!isset($_POST['action']))$_POST['action']=0;
 		if ($_POST['action'] != 2)
 		{
 			$template = gettemplate('trader/trader_main');

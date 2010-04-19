@@ -32,13 +32,18 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 
 	         
 		if ($Incremental)
+		{
+			if(!isset($CurrentPlanet[$resource[$Element]]))$CurrentPlanet[$resource[$Element]]=0;
+			if(!isset($CurrentUser[$resource[$Element]]))$CurrentUser[$resource[$Element]]=0;
 			$level  = ($CurrentPlanet[$resource[$Element]]) ? $CurrentPlanet[$resource[$Element]] : $CurrentUser[$resource[$Element]];
+		}
 
 		$RetValue = true;
 		$array    = array('metal', 'crystal', 'deuterium', 'energy_max');
 
 		foreach ($array as $ResType)
 		{
+			if(!isset($pricelist[$Element][$ResType]))$pricelist[$Element][$ResType]=0;
 			if ($pricelist[$Element][$ResType]!=0)
 			{
 				if ($Incremental)
