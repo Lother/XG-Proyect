@@ -26,28 +26,83 @@
         <td class="k">{deuterium_max}</td>
         <td class="k">-</td>
         <td class="k"><input name="action" value="{rs_calculate}" type="submit"></td>
-    </tr><tr>
-        <th height="22">{rs_sum}:</th>
-        <td class="k">{metal_total}</td>
-        <td class="k">{crystal_total}</td>
-        <td class="k">{deuterium_total}</td>
-        <td class="k">{energy_total}</td>
     </tr>
-    <tr>
-        <th>{rs_daily}</th>
-        <th>{daily_metal}</th>
-        <th>{daily_crystal}</th>
-        <th>{daily_deuterium}</th>
-        <th>{energy_total}</th>
-    </tr>
-    <tr>
-        <th>{rs_weekly}</th>
-        <th>{weekly_metal}</th>
-        <th>{weekly_crystal}</th>
-        <th>{weekly_deuterium}</th>
-        <th>{energy_total}</th>
-    </tr>
-    </tbody>
-    </table>
+	<tr>
+		<th height="22">Total:</th>
+		<td class="k">{metal_total}</td>
+		<td class="k">{crystal_total}</td>
+		<td class="k">{deuterium_total}</td>
+		<td class="k">{energy_total}</td>
+	</tr>
+</tbody>
+</table>
+</form>
+	<br>
+	<table width="569">
+		<tbody>
+			<tr>
+				<td class="c" colspan="4">{rs_production}</td>
+			</tr><tr>
+				<th>&nbsp;</th>
+				<th>{rs_daily}</th>
+				<th>{rs_weekly}</th>
+				<th>{rs_monthly}</th>
+			</tr><tr>
+				<th>{Metal}</th>
+				<th>{daily_metal}</th>
+				<th>{weekly_metal}</th>
+				<th>{monthly_metal}</th>
+			</tr><tr>
+				<th>{Crystal}</th>
+				<th>{daily_crystal}</th>
+				<th>{weekly_crystal}</th>
+				<th>{monthly_crystal}</th>
+			</tr><tr>
+				<th>{Deuterium}</th>
+				<th>{daily_deuterium}</th>
+				<th>{weekly_deuterium}</th>
+				<th>{monthly_deuterium}</th>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<br>
+<table width="569">
+<tbody>
+<tr>
+	<td class="c" colspan="3">{Storage_state}</td>
+</tr><tr>
+	<th>{Metal}</th>
+	<th>{metal_storage}%</th>
+	<th width="250">
+		<div style="border: 1px solid rgb(153, 153, 255); width: 250px;">
+		<div id="AlmMBar" style="background-color: {metal_storage_barcolor}; width: {metal_storage_bar}px;">
+		&nbsp;
+		</div>
+		</div>
+	</th>
+</tr><tr>
+	<th>{Crystal}</th>
+	<th>{crystal_storage}%</th>
+	<th width="250">
+		<div style="border: 1px solid rgb(153, 153, 255); width: 250px;">
+		<div id="AlmCBar" style="background-color: {crystal_storage_barcolor}; width: {crystal_storage_bar}px; opacity: 0.98;">
+		&nbsp;
+		</div>
+		</div>
+	</th>
+</tr><tr>
+	<th>{Deuterium}</th>
+	<th>{deuterium_storage}%</th>
+	<th width="250">
+		<div style="border: 1px solid rgb(153, 153, 255); width: 250px;">
+		<div id="AlmDBar" style="background-color: {deuterium_storage_barcolor}; width: {deuterium_storage_bar}px;">
+		&nbsp;
+		</div>
+		</div>
+	</th>
+</tr>
+</tbody>
+</table>
     </form>
 </div>

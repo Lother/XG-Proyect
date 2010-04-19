@@ -222,22 +222,64 @@ function ShowResourcesPage($CurrentUser, $CurrentPlanet)
 
 	$parse['daily_metal']           = floor($CurrentPlanet['metal_perhour']     * 24      * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['metal_basic_income']     * $game_config['resource_multiplier'] * 24      );
 	$parse['weekly_metal']          = floor($CurrentPlanet['metal_perhour']     * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['metal_basic_income']     * $game_config['resource_multiplier'] * 24 * 7  );
+	$parse['monthly_metal']          = floor($CurrentPlanet['metal_perhour']     * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['metal_basic_income']     * $game_config['resource_multiplier'] * 24 * 7 * 30);
 
 	$parse['daily_crystal']         = floor($CurrentPlanet['crystal_perhour']   * 24      * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['crystal_basic_income']   * $game_config['resource_multiplier'] * 24      );
 	$parse['weekly_crystal']        = floor($CurrentPlanet['crystal_perhour']   * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['crystal_basic_income']   * $game_config['resource_multiplier'] * 24 * 7  );
+	$parse['monthly_crystal']        = floor($CurrentPlanet['crystal_perhour']   * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['crystal_basic_income']   * $game_config['resource_multiplier'] * 24 * 7  * 30);
 
 	$parse['daily_deuterium']       = floor($CurrentPlanet['deuterium_perhour'] * 24      * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['deuterium_basic_income'] * $game_config['resource_multiplier'] * 24      );
 	$parse['weekly_deuterium']      = floor($CurrentPlanet['deuterium_perhour'] * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['deuterium_basic_income'] * $game_config['resource_multiplier'] * 24 * 7  );
+	$parse['monthly_deuterium']      = floor($CurrentPlanet['deuterium_perhour'] * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['deuterium_basic_income'] * $game_config['resource_multiplier'] * 24 * 7  * 30);
 
 	$parse['daily_metal']           = colorNumber(pretty_number($parse['daily_metal']));
 	$parse['weekly_metal']          = colorNumber(pretty_number($parse['weekly_metal']));
+	$parse['monthly_metal']          = colorNumber(pretty_number($parse['monthly_metal']));
 
 	$parse['daily_crystal']         = colorNumber(pretty_number($parse['daily_crystal']));
 	$parse['weekly_crystal']        = colorNumber(pretty_number($parse['weekly_crystal']));
+	$parse['monthly_crystal']        = colorNumber(pretty_number($parse['monthly_crystal']));
 
 	$parse['daily_deuterium']       = colorNumber(pretty_number($parse['daily_deuterium']));
 	$parse['weekly_deuterium']      = colorNumber(pretty_number($parse['weekly_deuterium']));
+	$parse['monthly_deuterium']      = colorNumber(pretty_number($parse['monthly_deuterium']));
 
+	$parse['metal_storage']         = floor($CurrentPlanet['metal']     / $CurrentPlanet['metal_max']     * 100) . $lang['o/o'];
+	$parse['crystal_storage']       = floor($CurrentPlanet['crystal']   / $CurrentPlanet['crystal_max']   * 100) . $lang['o/o'];
+	$parse['deuterium_storage']     = floor($CurrentPlanet['deuterium'] / $CurrentPlanet['deuterium_max'] * 100) . $lang['o/o'];
+	$parse['metal_storage_bar']     = floor(($CurrentPlanet['metal']     / $CurrentPlanet['metal_max']     * 100) * 2.5);
+	$parse['crystal_storage_bar']   = floor(($CurrentPlanet['crystal']   / $CurrentPlanet['crystal_max']   * 100) * 2.5);
+	$parse['deuterium_storage_bar'] = floor(($CurrentPlanet['deuterium'] / $CurrentPlanet['deuterium_max'] * 100) * 2.5);
+if ($parse['metal_storage_bar'] >= (100 * 2.5)) {
+		$parse['metal_storage_bar'] = 250;
+		$parse['metal_storage_barcolor'] = '#C00000';
+	} elseif ($parse['metal_storage_bar'] > (80 * 2.5)) {
+		$parse['metal_storage_barcolor'] = '#C0C000';
+	} else {
+		$parse['metal_storage_barcolor'] = '#00C000';
+	}
+
+	if ($parse['crystal_storage_bar'] >= (100 * 2.5)) {
+		$parse['crystal_storage_bar'] = 250;
+		$parse['crystal_storage_barcolor'] = '#C00000';
+	} elseif ($parse['crystal_storage_bar'] > (80 * 2.5)) {
+		$parse['crystal_storage_barcolor'] = '#C0C000';
+	} else {
+		$parse['crystal_storage_barcolor'] = '#00C000';
+	}
+
+	if ($parse['deuterium_storage_bar'] >= (100 * 2.5)) {
+		$parse['deuterium_storage_bar'] = 250;
+		$parse['deuterium_storage_barcolor'] = '#C00000';
+	} elseif ($parse['deuterium_storage_bar'] > (80 * 2.5)) {
+		$parse['deuterium_storage_barcolor'] = '#C0C000';
+	} else {
+		$parse['deuterium_storage_barcolor'] = '#00C000';
+	}
+
+	$parse['production_level_bar'] = $parse['production_level'] * 2.5;
+	$parse['production_level']     = "{$parse['production_level']}%";
+	$parse['production_level_barcolor'] = '#00ff00';
 
 	$QryUpdatePlanet  = "UPDATE {{table}} SET ";
 	$QryUpdatePlanet .= "`id` = '". $CurrentPlanet['id'] ."' ";

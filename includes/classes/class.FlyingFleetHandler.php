@@ -2135,7 +2135,7 @@ class FlyingFleetHandler
 				214 => 5.0,
 				215 => 3.2,
 				216 => 3.5,
-				217 => 0.03125,
+				217 => 3.0,
 				);
 
 				$RatioGain = array (
