@@ -8,7 +8,7 @@ $lang['Darkmatter']							= '暗物質';
 $lang['Energy']								= '能量';
 $lang['Messages']							= '訊息';
 $lang['write_message']						= '發送訊息';
-
+$lang['o/o']								= '%';
 $lang['type_mission'][1]  					= '攻擊';
 $lang['type_mission'][2]  					= '聯合攻擊';
 $lang['type_mission'][3]  					= '運輸';

@@ -277,9 +277,9 @@ if ($parse['metal_storage_bar'] >= (100 * 2.5)) {
 		$parse['deuterium_storage_barcolor'] = '#00C000';
 	}
 
-	$parse['production_level_bar'] = $parse['production_level'] * 2.5;
-	$parse['production_level']     = "{$parse['production_level']}%";
-	$parse['production_level_barcolor'] = '#00ff00';
+	//$parse['production_level_bar'] = $parse['production_level'] * 2.5;
+	//$parse['production_level']     = "{$parse['production_level']}%";
+	//$parse['production_level_barcolor'] = '#00ff00';
 
 	$QryUpdatePlanet  = "UPDATE {{table}} SET ";
 	$QryUpdatePlanet .= "`id` = '". $CurrentPlanet['id'] ."' ";

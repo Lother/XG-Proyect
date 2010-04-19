@@ -102,6 +102,41 @@ if(!defined('INSIDE')){ die(header("location:../../"));}
 		} else {
 			$parse['deuterium'] = $deuterium;
 		}
+		
+	$parse['metal_storage']         = floor($CurrentPlanet['metal']     / $CurrentPlanet['metal_max']     * 100) . $lang['o/o'];
+	$parse['crystal_storage']       = floor($CurrentPlanet['crystal']   / $CurrentPlanet['crystal_max']   * 100) . $lang['o/o'];
+	$parse['deuterium_storage']     = floor($CurrentPlanet['deuterium'] / $CurrentPlanet['deuterium_max'] * 100) . $lang['o/o'];
+	$parse['metal_storage_bar']     = floor(($CurrentPlanet['metal']     / $CurrentPlanet['metal_max']     * 100) * 0.9);
+	$parse['crystal_storage_bar']   = floor(($CurrentPlanet['crystal']   / $CurrentPlanet['crystal_max']   * 100) * 0.9);
+	$parse['deuterium_storage_bar'] = floor(($CurrentPlanet['deuterium'] / $CurrentPlanet['deuterium_max'] * 100) * 0.9);
+	if ($parse['metal_storage_bar'] >= (100 * 0.9)) {
+		$parse['metal_storage_bar'] = 90;
+		$parse['metal_storage_barcolor'] = '#C00000';
+	} elseif ($parse['metal_storage_bar'] > (80 * 0.9)) {
+		$parse['metal_storage_barcolor'] = '#C0C000';
+	} else {
+		$parse['metal_storage_barcolor'] = '#00C000';
+	}
+
+	if ($parse['crystal_storage_bar'] >= (100 * 0.9)) {
+		$parse['crystal_storage_bar'] = 90;
+		$parse['crystal_storage_barcolor'] = '#C00000';
+	} elseif ($parse['crystal_storage_bar'] > (80 * 0.9)) {
+		$parse['crystal_storage_barcolor'] = '#C0C000';
+	} else {
+		$parse['crystal_storage_barcolor'] = '#00C000';
+	}
+
+	if ($parse['deuterium_storage_bar'] >= (100 * 0.9)) {
+		$parse['deuterium_storage_bar'] = 90;
+		$parse['deuterium_storage_barcolor'] = '#C00000';
+	} elseif ($parse['deuterium_storage_bar'] > (80 * 0.9)) {
+		$parse['deuterium_storage_barcolor'] = '#C0C000';
+	} else {
+		$parse['deuterium_storage_barcolor'] = '#00C000';
+	}
+
+		
 		$parse['darkmatter'] 		= pretty_number($CurrentUser["darkmatter"]);
 		$TopBar 			 		= parsetemplate(gettemplate('topnav'), $parse);
 

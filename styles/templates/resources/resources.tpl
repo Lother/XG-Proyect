@@ -73,7 +73,7 @@
 	<td class="c" colspan="3">{Storage_state}</td>
 </tr><tr>
 	<th>{Metal}</th>
-	<th>{metal_storage}%</th>
+	<th>{metal_storage}</th>
 	<th width="250">
 		<div style="border: 1px solid rgb(153, 153, 255); width: 250px;">
 		<div id="AlmMBar" style="background-color: {metal_storage_barcolor}; width: {metal_storage_bar}px;">
@@ -83,7 +83,7 @@
 	</th>
 </tr><tr>
 	<th>{Crystal}</th>
-	<th>{crystal_storage}%</th>
+	<th>{crystal_storage}</th>
 	<th width="250">
 		<div style="border: 1px solid rgb(153, 153, 255); width: 250px;">
 		<div id="AlmCBar" style="background-color: {crystal_storage_barcolor}; width: {crystal_storage_bar}px; opacity: 0.98;">
@@ -93,7 +93,7 @@
 	</th>
 </tr><tr>
 	<th>{Deuterium}</th>
-	<th>{deuterium_storage}%</th>
+	<th>{deuterium_storage}</th>
 	<th width="250">
 		<div style="border: 1px solid rgb(153, 153, 255); width: 250px;">
 		<div id="AlmDBar" style="background-color: {deuterium_storage_barcolor}; width: {deuterium_storage_bar}px;">

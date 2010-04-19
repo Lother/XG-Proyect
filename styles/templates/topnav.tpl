@@ -59,6 +59,41 @@
 	     <td align="center" class='header' width="90">{energy}</td>
 
 	    </tr>
+	    <tr class='header'>
+	     <td align="center" class='header' width="90">
+			<div style="border: 1px solid rgb(153, 153, 255); width: 90px;">
+			<div id="AlmDBar" style="background-color: {metal_storage_barcolor}; width: {metal_storage_bar}px;">
+			&nbsp;
+			</div>
+			</div>
+			<div style="margin-top:-14px">
+			{metal_storage}
+			</div>
+		</td>
+		<td align="center" class='header' width="90">
+			<div style="border: 1px solid rgb(153, 153, 255); width: 90px;">
+			<div id="AlmDBar" style="background-color: {crystal_storage_barcolor}; width: {crystal_storage_bar}px;">
+			&nbsp;
+			</div>
+			</div>
+			<div style="margin-top:-14px">
+			{crystal_storage}
+			</div>
+		</td>
+		<td align="center" class='header' width="90">
+			<div style="border: 1px solid rgb(153, 153, 255); width: 90px;">
+			<div id="AlmDBar" style="background-color: {deuterium_storage_barcolor}; width: {deuterium_storage_bar}px;">
+			&nbsp;
+			</div>
+			</div>
+			<div style="margin-top:-14px">
+			{deuterium_storage}
+			</div>
+		</td>
+	     <td align="center" class='header' width="90"></td>
+	     <td align="center" class='header' width="90"></td>
+
+	    </tr>
    </table></td>
 </tr>
 </table>
