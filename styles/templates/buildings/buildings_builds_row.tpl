@@ -6,6 +6,7 @@
 	</td>
 	<td class="l">
 		<a href="game.php?page=infos&gid={i}">{n}</a>{nivel}<br>
+		{LevelMax}<br>
 		{descriptions}<br>
 		{price}
 		{time}

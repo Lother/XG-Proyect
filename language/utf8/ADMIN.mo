@@ -653,6 +653,7 @@ $lang['ac_suspended_time']					= '停權日期';
 $lang['ac_suspended_longer']				= '結束日期';
 $lang['ac_suspended_reason']				= '原因';
 $lang['ac_suspended_autor']					= '執行者';
+if(!isset($lang['ac_note_k']))$lang['ac_note_k']="";
 $lang['ac_note_k']							.= '<table><tr><th width=10%><font color=lime>T+</font></th><th>超過兆</th></tr>';
 $lang['ac_note_k']							.= '<tr><th width=10%><font color=lime>T</font></th><th>超過或等於兆</th></tr>';
 $lang['ac_note_k']							.= '<tr><th width=10%><font color=lime>B</font></th><th>超過或等於十億</th></tr>';

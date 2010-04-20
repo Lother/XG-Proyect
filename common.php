@@ -124,6 +124,7 @@ if (INSTALL != true)
 		}
 		else
 		{
+			if(!isset($user["dpath"]))$user["dpath"]=0;
 			$dpath     = (!$user["dpath"]) ? DEFAULT_SKINPATH : $user["dpath"];
 		}
         //We include the plugin system 0.3
@@ -131,7 +132,7 @@ if (INSTALL != true)
 
 		include($xgp_root . 'includes/functions/SetSelectedPlanet.' . $phpEx);
 		SetSelectedPlanet ($user);
-
+		if(!isset($user['current_planet']))$user['current_planet']=0;
 		$planetrow = doquery("SELECT * FROM `{{table}}` WHERE `id` = '".$user['current_planet']."';", "planets", true);
 
 		include($xgp_root . 'includes/functions/CheckPlanetUsedFields.' . $phpEx);

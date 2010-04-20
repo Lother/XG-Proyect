@@ -222,15 +222,15 @@ function ShowResourcesPage($CurrentUser, $CurrentPlanet)
 
 	$parse['daily_metal']           = floor($CurrentPlanet['metal_perhour']     * 24      * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['metal_basic_income']     * $game_config['resource_multiplier'] * 24      );
 	$parse['weekly_metal']          = floor($CurrentPlanet['metal_perhour']     * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['metal_basic_income']     * $game_config['resource_multiplier'] * 24 * 7  );
-	$parse['monthly_metal']          = floor($CurrentPlanet['metal_perhour']     * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['metal_basic_income']     * $game_config['resource_multiplier'] * 24 * 7 * 30);
+	$parse['monthly_metal']          = floor($CurrentPlanet['metal_perhour']     * 24 * 30  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['metal_basic_income']     * $game_config['resource_multiplier'] * 24 * 30);
 
 	$parse['daily_crystal']         = floor($CurrentPlanet['crystal_perhour']   * 24      * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['crystal_basic_income']   * $game_config['resource_multiplier'] * 24      );
 	$parse['weekly_crystal']        = floor($CurrentPlanet['crystal_perhour']   * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['crystal_basic_income']   * $game_config['resource_multiplier'] * 24 * 7  );
-	$parse['monthly_crystal']        = floor($CurrentPlanet['crystal_perhour']   * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['crystal_basic_income']   * $game_config['resource_multiplier'] * 24 * 7  * 30);
+	$parse['monthly_crystal']        = floor($CurrentPlanet['crystal_perhour']   * 24 * 30  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['crystal_basic_income']   * $game_config['resource_multiplier'] * 24 * 30);
 
 	$parse['daily_deuterium']       = floor($CurrentPlanet['deuterium_perhour'] * 24      * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['deuterium_basic_income'] * $game_config['resource_multiplier'] * 24      );
 	$parse['weekly_deuterium']      = floor($CurrentPlanet['deuterium_perhour'] * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['deuterium_basic_income'] * $game_config['resource_multiplier'] * 24 * 7  );
-	$parse['monthly_deuterium']      = floor($CurrentPlanet['deuterium_perhour'] * 24 * 7  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['deuterium_basic_income'] * $game_config['resource_multiplier'] * 24 * 7  * 30);
+	$parse['monthly_deuterium']      = floor($CurrentPlanet['deuterium_perhour'] * 24 * 30  * 0.01 * $parse['production_level'] * $game_config['resource_multiplier'] + $parse['deuterium_basic_income'] * $game_config['resource_multiplier'] * 24 * 30);
 
 	$parse['daily_metal']           = colorNumber(pretty_number($parse['daily_metal']));
 	$parse['weekly_metal']          = colorNumber(pretty_number($parse['weekly_metal']));

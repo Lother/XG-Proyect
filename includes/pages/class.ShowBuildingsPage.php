@@ -128,7 +128,7 @@ class ShowBuildingsPage
 
 	private function AddBuildingToQueue (&$CurrentPlanet, $CurrentUser, $Element, $AddMode = true)
 	{
-		global $resource;
+		global $resource,$NextBuildMax;
 
 		$CurrentQueue  = $CurrentPlanet['b_building_id'];
 
@@ -318,7 +318,7 @@ class ShowBuildingsPage
 
 	public function ShowBuildingsPage (&$CurrentPlanet, $CurrentUser)
 	{
-		global $ProdGrid, $lang, $resource, $reslist, $phpEx, $dpath, $game_config, $_GET, $xgp_root;
+		global $ProdGrid, $lang, $resource, $reslist, $phpEx, $dpath, $game_config, $_GET, $xgp_root,$LevelMax;
 
 		include_once($xgp_root . 'includes/functions/IsTechnologieAccessible.' . $phpEx);
 		include_once($xgp_root . 'includes/functions/GetElementPrice.' . $phpEx);
@@ -327,6 +327,7 @@ class ShowBuildingsPage
 		$parse			= $lang;
 		$Allowed['1'] 	= array(  1,  2,  3,  4, 12, 14, 15, 21, 22, 23, 24, 31, 33, 34, 35, 44, 45);
 		$Allowed['3'] 	= array( 12, 14, 21, 22, 23, 24, 34, 41, 42, 43);
+		
 
 		if (isset($_GET['cmd']))
 		{
@@ -372,7 +373,10 @@ class ShowBuildingsPage
 			{
 				$bDoItNow = false;
 			}
-
+			if( $CurrentPlanet[$resource[$Element]] >= $LevelMax[$Element])
+			{
+				$bDoItNow = false;
+			}
 			if ( ( $Element == 21 or $Element == 14 or $Element == 15 ) && $CurrentPlanet["b_hangar"] != 0)
 			{
 				$bDoItNow = false;
@@ -416,7 +420,7 @@ class ShowBuildingsPage
 
 		$BuildingPage        = "";
 		$zaehler         	 = 1;
-
+		
 		foreach($lang['tech'] as $Element => $ElementName)
 		{
 			if (in_array($Element, $Allowed[$CurrentPlanet['planet_type']]))
@@ -447,9 +451,14 @@ class ShowBuildingsPage
 					$parse['price']        	= GetElementPrice($CurrentUser, $CurrentPlanet, $Element);
 					$parse['test']			= GetRestPrice ($CurrentUser, $CurrentPlanet, $Element);
 					$parse['click']        	= '';
+					
 					$NextBuildLevel        	= $CurrentPlanet[$resource[$Element]] + 1;
-
-					if ($RoomIsOk && $CanBuildElement)
+					
+					if(!isset($LevelMax[$Element]))$LevelMax[$Element]=0;
+					$parse['LevelMax']= sprintf($lang['bd_max'], $LevelMax[$Element]);
+					if($NextBuildLevel > $LevelMax[$Element])
+						$parse['click'] = "<font color=#FF0000>".$lang['bd_build_max']."</font>";
+					else if ($RoomIsOk && $CanBuildElement)
 					{
 						if ($Queue['lenght'] == 0)
 						{
